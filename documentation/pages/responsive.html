@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA responsive design — mobile-first modifiers, breakpoints scale, and adaptive layouts.">
+  <title>Breakpoints | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center justify-between p-4 px-6 h-16">
+      <div class="flex items-center gap-3">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+        <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-mono ml-2">v0.1.0</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+        <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="responsive" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="responsive" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Breakpoints</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          ArarA is mobile-first by default. Every utility class can be applied at specific breakpoints using modifier prefixes, allowing you to build adaptive interfaces without writing custom media queries.
+        </p>
+
+        <!-- The Modifier System -->
+        <div id="modifiers" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">The Modifier System</h2>
+          <p class="text-slate-600 mb-8 text-sm">Apply a utility only when the screen width is equal to or greater than a specific breakpoint by prefixing the class with the breakpoint name followed by a colon.</p>
+          
+          <div class="bg-slate-900 rounded-2xl p-6 text-slate-300 font-mono text-sm overflow-x-auto border border-slate-800 mb-8">
+            <pre><code>&lt;!-- Blue on mobile, Red on medium screens, Green on large screens --&gt;
+&lt;div class="bg-blue-500 md:bg-red-500 lg:bg-green-500"&gt;…&lt;/div&gt;</code></pre>
+          </div>
+        </div>
+
+        <!-- Breakpoint Table -->
+        <div id="breakpoint-scale" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Breakpoint Scale</h2>
+          <p class="text-slate-600 mb-8 text-sm">The default breakpoints used in ArarA.</p>
+          
+          <div class="overflow-x-auto mb-8 border border-slate-100 rounded-2xl">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-100">
+                  <th class="p-4 font-bold text-slate-900">Breakpoint</th>
+                  <th class="p-4 font-bold text-slate-900">Prefix</th>
+                  <th class="p-4 font-bold text-slate-900">Minimum Width</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr><td class="p-4 text-slate-800">Extra Small</td><td class="p-4 font-mono text-indigo-600">xs:</td><td class="p-4 text-slate-500">320px</td></tr>
+                <tr><td class="p-4 text-slate-800">Small</td><td class="p-4 font-mono text-indigo-600">sm:</td><td class="p-4 text-slate-500">640px</td></tr>
+                <tr><td class="p-4 text-slate-800">Medium</td><td class="p-4 font-mono text-indigo-600">md:</td><td class="p-4 text-slate-500">768px</td></tr>
+                <tr><td class="p-4 text-slate-800">Large</td><td class="p-4 font-mono text-indigo-600">lg:</td><td class="p-4 text-slate-500">1024px</td></tr>
+                <tr><td class="p-4 text-slate-800">Extra Large</td><td class="p-4 font-mono text-indigo-600">xl:</td><td class="p-4 text-slate-500">1280px</td></tr>
+                <tr><td class="p-4 text-slate-800">2X Large</td><td class="p-4 font-mono text-indigo-600">2xl:</td><td class="p-4 text-slate-500">1536px</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Responsive Grid Demo -->
+        <div id="demo-grid" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Responsive Layouts</h2>
+          <p class="text-slate-600 mb-8 text-sm">Create a layout that adapts columns based on screen size.</p>
+          
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div class="h-24 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">1</div>
+              <div class="h-24 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">2</div>
+              <div class="h-24 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">3</div>
+              <div class="h-24 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold">4</div>
+            </div>
+            <p class="text-center text-xs font-mono text-indigo-600 mt-4 font-bold">grid-cols-1 md:grid-cols-2 lg:grid-cols-4</p>
+          </div>
+        </div>
+
+        <!-- Responsive Typography -->
+        <div id="demo-typo" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Responsive Typography</h2>
+          <p class="text-slate-600 mb-8 text-sm">Change text size and alignment at different breakpoints.</p>
+          
+          <div class="p-8 bg-slate-50 rounded-2xl border border-slate-100 mb-8 text-center md:text-left">
+            <h3 class="text-2xl md:text-4xl lg:text-6xl font-black text-slate-900 leading-tight">Adaptive Headline</h3>
+            <p class="text-slate-600 mt-4">Centered on mobile, left-aligned on tablet and desktop.</p>
+          </div>
+          
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>&lt;h1 class="text-2xl md:text-4xl lg:text-6xl text-center md:text-left"&gt;…&lt;/h1&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="glassmorphism.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Glassmorphism</span>
+          </a>
+          <a href="positioning.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Z-Index &amp; Positioning →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#responsive" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Breakpoints</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#modifiers" class="hover:text-indigo-600 transition-colors">Modifier System</a></li>
+              <li><a href="#breakpoint-scale" class="hover:text-indigo-600 transition-colors">Breakpoint Scale</a></li>
+              <li><a href="#demo-grid" class="hover:text-indigo-600 transition-colors">Responsive Layouts</a></li>
+              <li><a href="#demo-typo" class="hover:text-indigo-600 transition-colors">Responsive Typography</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

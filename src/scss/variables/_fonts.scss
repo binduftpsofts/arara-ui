@@ -1,0 +1,32 @@
+// variables/_fonts.scss
+$font-families: (
+  // --- Standard Stacks ---
+  "sans": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"),
+  "serif": (ui-serif, Georgia, Cambria, "Times New Roman", Times, serif),
+  "mono": (ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace),
+
+  // --- Specialized & Display ---
+  "display": ("Oswald", "Inter", system-ui, sans-serif),
+  "rounded": (ui-rounded, "Hiragino Maru Gothic ProN", Quicksand, Comfortaa, sans-serif),
+  "slab": (Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif", serif),
+  
+  // --- Modern 2026 Trends ---
+  "interface": ("Inter", "Geist", "Instrument Sans", "Plus Jakarta Sans", sans-serif),
+  "editorial": ("Fraunces", "Playfair Display", "Canela", serif),
+
+  // --- NEW: Geometric (Clean, Architectural feel) ---
+  "geometric": ("Futura", "Trebuchet MS", Arial, sans-serif),
+
+  // --- NEW: Antique/Traditional (Classic feel) ---
+  "antique": ("Ibarra Real Nova", "Palatino", "Book Antiqua", serif),
+
+  // --- NEW: Handwritten/Script (For accents/quotes) ---
+  "handwritten": ("Dancing Script", "Segoe Print", "cursive"),
+
+  // --- Bangla Optimized ---
+  "bangla": ('Hind Siliguri', 'SolaimanLipi', 'Kalpurush', 'Akaash', sans-serif),
+  "sans-bn": ('Inter', 'Hind Siliguri', system-ui, sans-serif),
+
+  // --- NEW: High-Contrast Bangla (For Headings) ---
+  "bangla-display": ('Li Ador Noiee', 'Hind Siliguri', sans-serif)
+) !default;

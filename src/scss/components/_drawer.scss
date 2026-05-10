@@ -1,0 +1,79 @@
+@use '../abstracts' as abs;
+@use 'sass:map';
+
+// --- DRAWER ---
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1040;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: #fff;
+  z-index: 1050;
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 0 15px -3px rgba(0, 0, 0, 0.05);
+
+  &.is-open {
+    transform: translateX(0);
+  }
+
+  // Desktop Reset
+  @include abs.respond-to(md) {
+    position: sticky;
+    top: 64px; // Navbar height
+    height: calc(100vh - 64px);
+    width: 280px;
+    flex-shrink: 0;
+    transform: none;
+    transition: none;
+    box-shadow: none;
+    z-index: 10;
+    border-right: 1px solid #f1f5f9;
+  }
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #f1f5f9;
+
+  @include abs.respond-to(md) {
+    display: none;
+  }
+}
+
+.drawer-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+// Helper to prevent scrolling when drawer is open
+body.drawer-open {
+  overflow: hidden;
+  
+  @include abs.respond-to(md) {
+    overflow: auto;
+  }
+}

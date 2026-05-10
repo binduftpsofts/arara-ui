@@ -1,0 +1,21 @@
+.token.comment { color: #6a9955; font-style: italic; }
+.token.tag      { color: #569cd6; }
+.token.attr     { color: #9cdcfe; }
+.token.string   { color: #ce9178; }
+.token.doctype  { color: #808080; }
+.token.selector { color: #d7ba7d; }
+.token.property { color: #9cdcfe; }
+.token.value    { color: #ce9178; }
+.token.color    { color: #b5cea8; }
+.token.atrule   { color: #c586c0; }
+.token.keyword  { color: #569cd6; font-weight: 500; }
+.token.number   { color: #b5cea8; }
+.token.boolean  { color: #569cd6; }
+.token.function { color: #dcdcaa; }
+.token.key      { color: #9cdcfe; }
+.token.variable { color: #9cdcfe; }
+.code-actions { display: flex; justify-content: space-between; align-items: center; }
+.copy-btn { background: none; border: none; cursor: pointer; padding: 4px; border-radius: 6px; transition: all 0.1s; }
+.copy-btn svg { width: 18px; height: 18px; stroke: #6c7a8e; }
+.copy-btn:hover svg { stroke: #1e293b; }
+.copy-btn.copied svg { stroke: #22c55e; }

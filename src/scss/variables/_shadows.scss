@@ -1,0 +1,60 @@
+// variables/_shadows.scss
+
+// 1. Core Global Shadow Colors (Used as base for opacity logic)
+$shadow-color: rgba(0, 0, 0, 0.1) !default;
+$shadow-color-dark: rgba(0, 0, 0, 0.25) !default;
+
+// 2. The Multi-Directional & Inner Shadow Scale
+$shadows: (
+  // Standard Outer Elevation (Multi-layered for smoothness)
+  "sm": (0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)),
+  "md": (0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)),
+  "lg": (0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)),
+  "xl": (0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)),
+
+  // Inner (Inset) Shadows
+  "inner":      (inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)),
+  "inner-md":   (inset 0 4px 6px 0 rgba(0, 0, 0, 0.1)),
+
+  // One-Side Oriented Shadows (Using negative spread to hide other sides)
+  "top":    (0 -5px 10px -5px rgba(0, 0, 0, 0.15)),
+  "bottom": (0 5px 10px -5px rgba(0, 0, 0, 0.15)),
+  "left":   (-5px 0 10px -5px rgba(0, 0, 0, 0.15)),
+  "right":  (5px 0 10px -5px rgba(0, 0, 0, 0.15)),
+
+  // Side-Oriented Multi (e.g., Bottom-Right elevation)
+  "br":     (5px 5px 15px -5px rgba(0, 0, 0, 0.2)),
+  "bl":     (-5px 5px 15px -5px rgba(0, 0, 0, 0.2))
+) !default;
+
+// 3. Shadow Color Tints (Modern "Glow" effects)
+// We map these to your primary color tokens
+$shadow-tints: (
+  "primary": (0 10px 15px -3px rgba(59, 130, 246, 0.3)),
+  "danger":  (0 10px 15px -3px rgba(239, 68, 68, 0.3)),
+  "success": (0 10px 15px -3px rgba(34, 197, 94, 0.3)),
+  "white":   (0 4px 14px 0 rgba(255, 255, 255, 0.39))
+) !default;
+
+$shadow-fx: (
+  // --- Glass Effect (Outer) ---
+  // A mix of a soft dark shadow and a sharp white "rim" highlight
+  "glass": (
+    0 8px 32px 0 rgba(31, 38, 135, 0.37), // The depth
+    0 0 1px 0 rgba(255, 255, 255, 0.18)   // The sharp edge reflection
+  ),
+
+  // --- Water / Fluid Effect (Inner) ---
+  // Uses two inner shadows to create "volume" and a highlight at the top
+  "water": (
+    inset 0 4px 4px rgba(255, 255, 255, 0.3), // Top highlight (light hitting water)
+    inset 0 -4px 4px rgba(0, 0, 0, 0.05),     // Bottom depth
+    0 10px 20px rgba(0, 0, 0, 0.05)           // Soft shadow on the ground
+  ),
+
+  // --- Soft Specular (Silk/Plastic) ---
+  "specular": (
+    0 0 0 1px rgba(255, 255, 255, 0.1), // Ultra-thin white border
+    0 10px 20px rgba(0, 0, 0, 0.2)      // Standard drop shadow
+  )
+) !default;

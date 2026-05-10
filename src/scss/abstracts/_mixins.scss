@@ -1,0 +1,119 @@
+// src/scss/abstracts/_mixins.scss
+@use 'sass:map';
+@use '../variables' as vars; 
+
+// ==========================================================================
+// ABSTRACTS: MIXINS
+// ==========================================================================
+
+// 1. RESPONSIVE ENGINE
+// --------------------------------------------------------------------------
+
+/// Mobile-First Media Query
+/// @param {String} $breakpoint - xs, sm, md, lg, xl, 2xl
+@mixin respond-to($breakpoint) {
+  @if map.has-key(vars.$breakpoints, $breakpoint) {
+    $value: map.get(vars.$breakpoints, $breakpoint);
+    @media (min-width: $value) {
+      @content;
+    }
+  } @else {
+    @error "Breakpoint '#{$breakpoint}' not found. Available: #{map.keys(vars.$breakpoints)}";
+  }
+}
+
+/// Screen Reader Only (Accessibility)
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+// 2. UTILITY GENERATOR (The Core of Tailwind-style logic)
+// --------------------------------------------------------------------------
+
+/// Universal Utility Generator
+/// Automatically generates classes from a map with optional hover/responsive support
+@mixin generate-utility($prefix, $property, $map, $hover: false) {
+  @each $key, $value in $map {
+    .#{$prefix}-#{$key} {
+      #{$property}: $value !important;
+    }
+    
+    @if $hover {
+      .hover\:#{$prefix}-#{$key}:hover {
+        #{$property}: $value !important;
+      }
+    }
+  }
+}
+
+
+// 3. MODERN DESIGN PATTERNS
+// --------------------------------------------------------------------------
+
+/// Glassmorphism Factory
+@mixin glassify($bg: rgba(255, 255, 255, 0.1), $blur: 10px) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: map.get(vars.$shadow-fx, "glass");
+}
+
+/// Flex Center Helper
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+/// Truncate Text
+@mixin truncate($width: 100%) {
+  width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+// 4. INTERACTIVE STATES
+// --------------------------------------------------------------------------
+
+/// Safe Hover (Prevents sticky hover on touch devices)
+@mixin hover {
+  @media (hover: hover) {
+    &:hover { @content; }
+  }
+}
+
+/// Focus Ring (Accessibility)
+@mixin focus-ring($color: map.get(vars.$colors, "primary")) {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba($color, 0.5);
+}
+
+
+// 5. ANIMATION HELPERS
+// --------------------------------------------------------------------------
+
+/// Hardware Acceleration & Transform Base
+@mixin transform-gpu {
+  transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), 0) rotate(var(--tw-rotate, 0deg)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important;
+}
+
+/// Hardware Acceleration (Force GPU rendering for smooth animations)
+@mixin force-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}

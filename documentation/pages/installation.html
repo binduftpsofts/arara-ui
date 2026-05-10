@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How to install ArarA CSS framework via CDN, NPM, or local Sass build.">
+  <title>Installation | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="installation" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="installation" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Installation</h1>
+        <p class="text-lg text-slate-600 leading-relaxed mb-16">
+          Get ArarA into your project in minutes. Choose the method that fits your workflow CDN for instant access, NPM for a production pipeline, or Sass for full customization power.
+        </p>
+
+        <!-- Via CDN -->
+        <div id="via-cdn" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Via CDN</h2>
+          <p class="text-slate-600 mb-6 text-sm">The fastest way to get started. Add the stylesheet link to your HTML <code class="font-mono text-indigo-600">&lt;head&gt;</code> — no build step required.</p>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>&lt;link rel="stylesheet" href="https://cdn.arara-css.com/v0.1.0/style.css"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Via NPM -->
+        <div id="npm-install" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Via NPM</h2>
+          <p class="text-slate-600 mb-6 text-sm">Install ArarA as a development dependency and import the compiled stylesheet.</p>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">bash</div>
+            </div>
+            <div class="code-body">
+              <pre><code>npm install arara-css</code></pre>
+            </div>
+          </div>
+
+          <p class="text-slate-500 text-xs mb-4">Then link the compiled file in your HTML:</p>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>&lt;link rel="stylesheet" href="node_modules/arara-css/dist/css/style.css"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sass Build -->
+        <div id="sass-build" class="mb-12 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Local Sass Build</h2>
+          <p class="text-slate-600 mb-6 text-sm">For full control over the framework — override variables, add utilities, or cherry-pick modules — clone the repository and build locally.</p>
+
+          <h3 class="text-base font-semibold text-slate-700 mb-3">1. Clone and install</h3>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>git clone https://github.com/FazleRabbiBindu/arara.git
+cd arara
+npm install</code></pre>
+            </div>
+          </div>
+
+          <div id="project-structure" class="mb-16 scroll-mt-24">
+          <h3 class="text-base font-semibold text-slate-700 mb-3">2. Build the CSS</h3>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code># One-time production build
+npm run build
+
+# Watch mode (auto-recompile on save)
+npm run watch</code></pre>
+            </div>
+          </div>
+        </div>
+        
+        <div id="project-structure" class="mb-16 scroll-mt-24">
+          <h3 class="text-base font-semibold text-slate-700 mb-3">3. Link in your HTML</h3>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>&lt;link rel="stylesheet" href="dist/css/style.css"&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Structure -->
+        <div id="project-structure" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Project Structure</h2>
+          <p class="text-slate-600 mb-6 text-sm">After cloning, you'll find this directory structure:</p>
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>arara/
+├── src/scss/
+│   ├── main.scss              ← Entry point
+│   ├── abstracts/             ← Functions, Mixins, Animations
+│   ├── base/                  ← Reset, Global Styles
+│   ├── components/            ← TOC, Drawer, Chapter Nav
+│   ├── utilities/             ← Spacing, Colors, Grid, Visuals
+│   └── variables/             ← Design Tokens (colors, spacing…)
+├── dist/css/
+│   └── style.css              ← Compiled output
+├── documentation/             ← This documentation site
+│   ├── pages/
+│   └── scripts/
+└── index.html                 ← Documentation homepage</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="../../index.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Introduction</span>
+          </a>
+          <a href="colors.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Colors &amp; Theming →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#installation" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Installation</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#via-cdn" class="hover:text-indigo-600 transition-colors">Via CDN</a></li>
+              <li><a href="#npm-install" class="hover:text-indigo-600 transition-colors">Via NPM</a></li>
+              <li><a href="#sass-build" class="hover:text-indigo-600 transition-colors">Local Sass Build</a></li>
+              <li><a href="#project-structure" class="hover:text-indigo-600 transition-colors">Project Structure</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+// ==========================================================================
+// UTILITIES: SPACING (Padding & Margin)
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// 1. PADDING GENERATOR
+// Creates: .p-{size}, .pt-{size}, .pb-{size}, .pl-{size}, .pr-{size}, .px-{size}, .py-{size}
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  // All sides
+  .p-#{$class-key} { padding: $value !important; }
+  
+  // Single sides
+  .pt-#{$class-key} { padding-top: $value !important; }
+  .pb-#{$class-key} { padding-bottom: $value !important; }
+  .pl-#{$class-key} { padding-left: $value !important; }
+  .pr-#{$class-key} { padding-right: $value !important; }
+
+  // Directional (Axis)
+  .px-#{$class-key} { 
+    padding-left: $value !important; 
+    padding-right: $value !important; 
+  }
+  .py-#{$class-key} { 
+    padding-top: $value !important; 
+    padding-bottom: $value !important; 
+  }
+}
+
+// 2. MARGIN GENERATOR
+// Creates: .m-{size}, .mt-{size}, .mb-{size}, .ml-{size}, .mr-{size}, .mx-{size}, .my-{size}
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  // All sides
+  .m-#{$class-key} { margin: $value !important; }
+  
+  // Single sides
+  .mt-#{$class-key} { margin-top: $value !important; }
+  .mb-#{$class-key} { margin-bottom: $value !important; }
+  .ml-#{$class-key} { margin-left: $value !important; }
+  .mr-#{$class-key} { margin-right: $value !important; }
+
+  // Directional (Axis)
+  .mx-#{$class-key} { 
+    margin-left: $value !important; 
+    margin-right: $value !important; 
+  }
+  .my-#{$class-key} { 
+    margin-top: $value !important; 
+    margin-bottom: $value !important; 
+  }
+}
+
+// 3. SPECIAL MARGINS (Auto)
+.m-auto  { margin: auto !important; }
+.mt-auto { margin-top: auto !important; }
+.mb-auto { margin-bottom: auto !important; }
+.ml-auto { margin-left: auto !important; }
+.mr-auto { margin-right: auto !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.my-auto { margin-top: auto !important; margin-bottom: auto !important; }
+
+
+// 4. GAP GENERATOR (For Flex and Grid)
+// Creates: .gap-{size}, .gap-x-{size}, .gap-y-{size}
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  .gap-#{$class-key}   { gap: $value !important; }
+  .gap-x-#{$class-key} { column-gap: $value !important; }
+  .gap-y-#{$class-key} { row-gap: $value !important; }
+}
+
+// 5. NEGATIVE MARGINS
+// Creates: .-m-{size}, .-mt-{size}, etc.
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  @if $value != 0 {
+    .-m-#{$class-key}  { margin: -#{$value} !important; }
+    .-mt-#{$class-key} { margin-top: -#{$value} !important; }
+    .-mb-#{$class-key} { margin-bottom: -#{$value} !important; }
+    .-ml-#{$class-key} { margin-left: -#{$value} !important; }
+    .-mr-#{$class-key} { margin-right: -#{$value} !important; }
+    .-mx-#{$class-key} { margin-left: -#{$value} !important; margin-right: -#{$value} !important; }
+    .-my-#{$class-key} { margin-top: -#{$value} !important; margin-bottom: -#{$value} !important; }
+  }
+}
+
+// 6. SPACE-BETWEEN GENERATOR
+// Usage: .space-x-4 (adds margin-left to all siblings)
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  .space-x-#{$class-key} > * + * { 
+    margin-left: $value !important; 
+  }
+  .space-y-#{$class-key} > * + * { 
+    margin-top: $value !important; 
+  }
+
+  // Reverse logic for RTL support or reversed flex-cols
+  .space-x-reverse-#{$class-key} > * + * { 
+    margin-right: $value !important; 
+    margin-left: 0 !important; 
+  }
+}
+
+// 7. SCROLL MARGIN GENERATOR
+// Useful for sticky headers to prevent content from being hidden
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  .scroll-m-#{$class-key}  { scroll-margin: $value !important; }
+  .scroll-mt-#{$class-key} { scroll-margin-top: $value !important; }
+  .scroll-mb-#{$class-key} { scroll-margin-bottom: $value !important; }
+  .scroll-ml-#{$class-key} { scroll-margin-left: $value !important; }
+  .scroll-mr-#{$class-key} { scroll-margin-right: $value !important; }
+}

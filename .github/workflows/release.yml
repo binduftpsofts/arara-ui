@@ -1,0 +1,45 @@
+name: Create Release and Attach Assets
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          release_name: ${{ github.ref_name }}
+          body: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload CSS asset to release
+        uses: im-open/upload-release-asset@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          upload-url: ${{ steps.create_release.outputs.upload_url }}
+          asset-path: dist/css/style.css
+          asset-name: style.css
+          asset-content-type: text/css

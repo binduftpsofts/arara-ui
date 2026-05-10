@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA Typography — font families, sizes, weights, line heights, and modern text controls.">
+  <title>Typography | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="typography" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="typography" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Typography</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          ArarA provides a robust typography system with curated font stacks, fluid scaling, and modern layout controls. Built for legibility and aesthetic precision across all screen sizes.
+        </p>
+
+
+        <!-- Font Size -->
+        <div id="font-size" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Font Size</h2>
+          <p class="text-slate-600 mb-8 text-sm">A comprehensive scale from tiny metadata to massive hero headlines.</p>
+          
+          <div class="overflow-x-auto mb-8 border border-slate-100 rounded-2xl">
+            <table class="w-full text-sm text-left">
+              <thead>
+                <tr class="bg-slate-50 border-b border-slate-100">
+                  <th class="p-4 font-bold text-slate-900">Token</th>
+                  <th class="p-4 font-bold text-slate-900">Value (rem)</th>
+                  <th class="p-4 font-bold text-slate-900">Example</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100">
+                <tr><td class="p-4 font-mono text-indigo-600">text-xs</td><td class="p-4 text-slate-500">0.75rem</td><td class="p-4 text-xs">Tiny metadata text</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-sm</td><td class="p-4 text-slate-500">0.875rem</td><td class="p-4 text-sm">Small body copy</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-base</td><td class="p-4 text-slate-500">1rem</td><td class="p-4 text-base">Standard body text</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-lg</td><td class="p-4 text-slate-500">1.125rem</td><td class="p-4 text-lg">Large UI text</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-xl</td><td class="p-4 text-slate-500">1.25rem</td><td class="p-4 text-xl font-bold">Extra large text</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-2xl</td><td class="p-4 text-slate-500">1.5rem</td><td class="p-4 text-2xl font-bold">Heading Level 3</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-3xl</td><td class="p-4 text-slate-500">1.875rem</td><td class="p-4 text-3xl font-bold">Heading Level 2</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-4xl</td><td class="p-4 text-slate-500">2.25rem</td><td class="p-4 text-4xl font-extrabold">Heading Level 1</td></tr>
+                <tr><td class="p-4 font-mono text-indigo-600">text-5xl</td><td class="p-4 text-slate-500">3rem</td><td class="p-4 text-5xl font-black">Hero Title</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Font Weight -->
+        <div id="font-weight" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Font Weight</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the stroke thickness of your typography with weights ranging from thin to black.</p>
+          
+          <div class="space-y-4 mb-8">
+            <p class="font-thin text-3xl text-slate-800">font-thin (100)</p>
+            <p class="font-light text-3xl text-slate-800">font-light (300)</p>
+            <p class="font-normal text-3xl text-slate-800">font-normal (400)</p>
+            <p class="font-medium text-3xl text-slate-800">font-medium (500)</p>
+            <p class="font-semibold text-3xl text-slate-800">font-semibold (600)</p>
+            <p class="font-bold text-3xl text-slate-800">font-bold (700)</p>
+            <p class="font-extrabold text-3xl text-slate-800">font-extrabold (800)</p>
+            <p class="font-black text-3xl text-slate-800">font-black (900)</p>
+          </div>
+        </div>
+
+        <!-- Line Height -->
+        <div id="line-height" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Line Height (Leading)</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control vertical spacing between lines of text to improve readability.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">leading-tight (1.25)</p>
+              <p class="text-sm text-slate-600 leading-tight">ArarA is a high-performance, utility-first CSS framework designed for the modern web. Built on a robust Sass engine, it provides developers with the tools to build stunning interfaces.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">leading-relaxed (1.625)</p>
+              <p class="text-sm text-slate-600 leading-relaxed">ArarA is a high-performance, utility-first CSS framework designed for the modern web. Built on a robust Sass engine, it provides developers with the tools to build stunning interfaces.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Letter Spacing -->
+        <div id="letter-spacing" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Letter Spacing (Tracking)</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the horizontal spacing between characters.</p>
+          
+          <div class="space-y-6 mb-8">
+            <p class="text-xl font-bold text-slate-800 tracking-tighter">tracking-tighter (-0.05em)</p>
+            <p class="text-xl font-bold text-slate-800 tracking-tight">tracking-tight (-0.025em)</p>
+            <p class="text-xl font-bold text-slate-800 tracking-normal">tracking-normal (0em)</p>
+            <p class="text-xl font-bold text-slate-800 tracking-wide">tracking-wide (0.025em)</p>
+            <p class="text-xl font-bold text-slate-800 tracking-widest uppercase">tracking-widest (0.1em)</p>
+          </div>
+        </div>
+
+        <!-- Modern Controls -->
+        <div id="modern-controls" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Modern Layout Controls</h2>
+          <p class="text-slate-600 mb-8 text-sm">Utilize cutting-edge CSS features for perfect typography rendering.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">text-balance</p>
+              <h3 class="text-lg font-bold text-slate-900 text-balance mb-2">A long headline that would normally have a single word on the last line</h3>
+              <p class="text-xs text-slate-500 italic">Distributes text evenly across lines.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">truncate</p>
+              <p class="text-sm text-slate-600 truncate">ArarA is a high-performance, utility-first CSS framework designed for the modern web with a very long sentence that will be cut off.</p>
+              <p class="text-xs text-slate-500 italic mt-2">Adds ellipsis (...) to overflowing text.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">line-clamp-2</p>
+              <p class="text-sm text-slate-600 line-clamp-2">ArarA is a high-performance, utility-first CSS framework. It provides developers with the tools to build stunning, responsive interfaces with unprecedented speed and precision. This third sentence should not be visible.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">tabular-nums</p>
+              <div class="space-y-1 font-mono text-sm">
+                <p class="tabular-nums">111,111.00</p>
+                <p class="tabular-nums">999,999.99</p>
+              </div>
+              <p class="text-xs text-slate-500 italic mt-2">Monospaced numbers for alignment in tables.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fluid Typography -->
+        <div id="fluid-typography" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Fluid Typography</h2>
+          <p class="text-slate-600 mb-8 text-sm">Text that scales smoothly between mobile and desktop using modern <code class="font-mono text-indigo-600">clamp()</code> logic.</p>
+          
+          <div class="p-10 bg-slate-50 rounded-2xl border border-slate-100 text-center mb-8">
+            <h3 class="text-fluid-xl font-black text-slate-900 leading-tight">Fluidly Scaling Title</h3>
+            <p class="text-slate-500 mt-2">Resize your browser to see this scale smoothly.</p>
+          </div>
+          
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">HTML</div>
+            </div>
+            <div class="code-body">
+              <pre><code>&lt;h1 class="text-fluid-xl font-black"&gt;Fluid Scaling Title&lt;/h1&gt;
+&lt;p class="text-fluid-lg"&gt;Fluid body text&lt;/p&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="colors.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Colors &amp; Theming</span>
+          </a>
+          <a href="spacing.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Spacing →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#typography" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Typography</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#font-family" class="hover:text-indigo-600 transition-colors">Font Family</a></li>
+              <li><a href="#font-size" class="hover:text-indigo-600 transition-colors">Font Size</a></li>
+              <li><a href="#font-weight" class="hover:text-indigo-600 transition-colors">Font Weight</a></li>
+              <li><a href="#line-height" class="hover:text-indigo-600 transition-colors">Line Height</a></li>
+              <li><a href="#letter-spacing" class="hover:text-indigo-600 transition-colors">Letter Spacing</a></li>
+              <li><a href="#modern-controls" class="hover:text-indigo-600 transition-colors">Modern Controls</a></li>
+              <li><a href="#fluid-typography" class="hover:text-indigo-600 transition-colors">Fluid Typography</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA elevation system — drop shadows, colored glows, and ring utilities.">
+  <title>Shadows &amp; Elevation | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="shadows" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="shadows" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Shadows &amp; Elevation</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          ArarA uses multi-layered shadow tokens to create realistic depth and elevation. From subtle interface lines to deep, floating modals.
+        </p>
+
+        <!-- Shadow Scale -->
+        <div id="scale" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">The Shadow Scale</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control elevation with standard drop shadows.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview p-8 bg-slate-50  grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div class="p-6 bg-white rounded-xl shadow-sm text-center border border-slate-50 font-mono text-xs text-slate-400">sm</div>
+              <div class="p-6 bg-white rounded-xl shadow-md text-center border border-slate-50 font-mono text-xs text-slate-400">md</div>
+              <div class="p-6 bg-white rounded-xl shadow-lg text-center border border-slate-50 font-mono text-xs text-slate-400">lg</div>
+              <div class="p-6 bg-white rounded-xl shadow-xl text-center border border-slate-50 font-mono text-xs text-slate-400">xl</div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="shadow-sm"&gt;…&lt;/div&gt;
+&lt;div class="shadow-lg"&gt;…&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Colored Shadows -->
+        <div id="colored" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Colored Elevation</h2>
+          <p class="text-slate-600 mb-8 text-sm">Add a glow effect using brand-colored shadows.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview p-8 bg-slate-50  grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="p-8 bg-indigo-600 rounded-2xl shadow-indigo-200 shadow-xl text-center text-white font-bold">Primary Glow</div>
+              <div class="p-8 bg-red-600 rounded-2xl shadow-red-200 shadow-xl text-center text-white font-bold">Danger Glow</div>
+              <div class="p-8 bg-green-600 rounded-2xl shadow-green-200 shadow-xl text-center text-white font-bold">Success Glow</div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="bg-indigo-600 shadow-indigo-200 shadow-xl ..."&gt;…&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ring Utilities -->
+        <div id="rings" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Rings</h2>
+          <p class="text-slate-600 mb-8 text-sm">Create focus outlines or secondary borders.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview p-8 bg-slate-50  flex flex-wrap gap-8 items-center justify-center">
+              <button class="px-6 py-3 bg-white border border-slate-200 rounded-xl ring-2 ring-indigo-500 ring-offset-2 font-semibold text-sm">Ring Offset</button>
+              <div class="w-12 h-12 rounded-full bg-slate-200 ring-4 ring-indigo-100 shadow-sm"></div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;button class="ring-2 ring-indigo-500 ring-offset-2 ..."&gt;…&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Opacity -->
+        <div id="opacity" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Opacity</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the transparency of elements using <code class="font-mono text-indigo-600">opacity-{n}</code>.</p>
+          
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8 text-center">
+            <div class="space-y-2"><div class="h-16 bg-indigo-600 rounded-xl opacity-100"></div><p class="text-xs font-mono">100</p></div>
+            <div class="space-y-2"><div class="h-16 bg-indigo-600 rounded-xl opacity-75"></div><p class="text-xs font-mono">75</p></div>
+            <div class="space-y-2"><div class="h-16 bg-indigo-600 rounded-xl opacity-50"></div><p class="text-xs font-mono">50</p></div>
+            <div class="space-y-2"><div class="h-16 bg-indigo-600 rounded-xl opacity-25"></div><p class="text-xs font-mono">25</p></div>
+            <div class="space-y-2"><div class="h-16 bg-indigo-600 rounded-xl opacity-10"></div><p class="text-xs font-mono">10</p></div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="borders.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Borders &amp; Radius</span>
+          </a>
+          <a href="transitions.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Transitions &amp; Animation →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#shadows" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Shadows &amp; Elevation</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#scale" class="hover:text-indigo-600 transition-colors">The Scale</a></li>
+              <li><a href="#colored" class="hover:text-indigo-600 transition-colors">Colored Elevation</a></li>
+              <li><a href="#rings" class="hover:text-indigo-600 transition-colors">Rings</a></li>
+              <li><a href="#opacity" class="hover:text-indigo-600 transition-colors">Opacity</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+// src/scss/components/_chapter-nav.scss
+@use '../abstracts' as abs;
+
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid #f1f5f9;
+  gap: 1.5rem;
+
+  @include abs.respond-to(sm) {
+    flex-direction: row;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    max-width: 45%;
+    
+    &--next {
+      align-items: flex-end;
+      text-align: right;
+    }
+  }
+
+  &__label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #94a3b8;
+  }
+
+  &__title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #0f172a;
+    transition: color 0.2s;
+
+    .chapter-nav__link:hover & {
+      color: #4f46e5;
+    }
+  }
+}

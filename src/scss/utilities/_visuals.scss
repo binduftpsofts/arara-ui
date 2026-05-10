@@ -1,0 +1,155 @@
+// ==========================================================================
+// UTILITIES: VISUALS (Radii, Borders, Shadows, Transitions)
+// ==========================================================================
+
+@use '../abstracts' as *;
+@use 'sass:map';
+
+// 1. BORDER RADIUS (Rounded Corners)
+// Creates .rounded, .rounded-lg, .rounded-t-md, etc.
+@each $key, $value in $radii {
+  @if $key == "base" {
+    .rounded { border-radius: $value !important; }
+    .rounded-t { border-top-left-radius: $value !important; border-top-right-radius: $value !important; }
+    .rounded-b { border-bottom-left-radius: $value !important; border-bottom-right-radius: $value !important; }
+    .rounded-l { border-top-left-radius: $value !important; border-bottom-left-radius: $value !important; }
+    .rounded-r { border-top-right-radius: $value !important; border-bottom-right-radius: $value !important; }
+  } @else {
+    .rounded-#{$key} { border-radius: $value !important; }
+    .rounded-t-#{$key} { border-top-left-radius: $value !important; border-top-right-radius: $value !important; }
+    .rounded-b-#{$key} { border-bottom-left-radius: $value !important; border-bottom-right-radius: $value !important; }
+    .rounded-l-#{$key} { border-top-left-radius: $value !important; border-bottom-left-radius: $value !important; }
+    .rounded-r-#{$key} { border-top-right-radius: $value !important; border-bottom-right-radius: $value !important; }
+  }
+}
+
+// 2. BORDER WIDTH
+@each $key, $value in $border-widths {
+  .border-#{$key}   { border-width: $value !important; }
+  .border-t-#{$key} { border-top-width: $value !important; }
+  .border-b-#{$key} { border-bottom-width: $value !important; }
+  .border-l-#{$key} { border-left-width: $value !important; }
+  .border-r-#{$key} { border-right-width: $value !important; }
+}
+
+// 3. BORDER STYLE
+@each $key, $value in $border-styles {
+  .border-#{$key} { border-style: $value !important; }
+}
+
+// 4. SHADOWS (Elevation)
+@each $key, $value in $shadows {
+  .shadow-#{$key} { box-shadow: $value !important; }
+}
+
+// 5. TRANSITIONS (The Smoothness)
+@each $name, $prop in $transition-properties {
+  .transition-#{$name} {
+    transition-property: $prop !important;
+    transition-timing-function: map.get($transition-easings, "in-out") !important;
+    transition-duration: map.get($transition-durations, "normal") !important;
+  }
+}
+
+// 6. DURATION, EASING, & DELAY
+@each $key, $value in $transition-durations { .duration-#{$key} { transition-duration: $value !important; } }
+@each $key, $value in $transition-easings { .ease-#{$key} { transition-timing-function: $value !important; } }
+@each $key, $value in $transition-delays { .delay-#{$key} { transition-delay: $value !important; } }
+
+// 7. OPACITY
+@each $key, $value in $opacities {
+  .opacity-#{$key} { opacity: $value !important; }
+}
+
+// 8. FILTERS & GLASS
+.blur-sm { filter: blur(4px) !important; }
+.blur    { filter: blur(8px) !important; }
+.blur-lg { filter: blur(16px) !important; }
+
+.glass {
+  @include glassify; // Using your elite mixin
+}
+
+// 9. RINGS (Outer Glow / Focus Rings)
+@each $key, $value in $ring-widths {
+  .ring-#{$key} {
+    --ring-offset-shadow: 0 0 #0000;
+    --ring-shadow: 0 0 #0000;
+    --ring-inset: ;
+    --ring-color: #{rgba(clr('primary'), 0.5)};
+    box-shadow: var(--ring-offset-shadow), var(--ring-shadow), var(--shadow, 0 0 #0000) !important;
+    --ring-shadow: var(--ring-inset) 0 0 0 calc(#{$value} + var(--ring-offset-width, 0px)) var(--ring-color) !important;
+  }
+}
+
+// 10. TRANSFORMS (Scale, Rotate, & Translate)
+// We use a CSS variable approach to allow stacking multiple transforms
+.transform-gpu {
+  @include transform-gpu;
+}
+
+@each $key, $value in $transition-scales {
+  .scale-#{$key} { --tw-scale-x: #{$value}; --tw-scale-y: #{$value}; @include transform-gpu; }
+  .hover\:scale-#{$key}:hover { --tw-scale-x: #{$value}; --tw-scale-y: #{$value}; @include transform-gpu; }
+}
+
+@each $key, $value in $transition-rotate {
+  .rotate-#{$key} { --tw-rotate: #{$value}; @include transform-gpu; }
+  .hover\:rotate-#{$key}:hover { --tw-rotate: #{$value}; @include transform-gpu; }
+}
+
+@each $key, $value in $transition-translate {
+  .translate-x-#{$key} { --tw-translate-x: #{$value}; @include transform-gpu; }
+  .translate-y-#{$key} { --tw-translate-y: #{$value}; @include transform-gpu; }
+  
+  // Negative variants
+  .-translate-x-#{$key} { --tw-translate-x: -#{$value}; @include transform-gpu; }
+  .-translate-y-#{$key} { --tw-translate-y: -#{$value}; @include transform-gpu; }
+
+  // Hover variants
+  .hover\:translate-x-#{$key}:hover { --tw-translate-x: #{$value}; @include transform-gpu; }
+  .hover\:translate-y-#{$key}:hover { --tw-translate-y: #{$value}; @include transform-gpu; }
+  .hover\:-translate-x-#{$key}:hover { --tw-translate-x: -#{$value}; @include transform-gpu; }
+  .hover\:-translate-y-#{$key}:hover { --tw-translate-y: -#{$value}; @include transform-gpu; }
+}
+
+// Transform Origins
+.origin-center { transform-origin: center !important; }
+.origin-top    { transform-origin: top !important; }
+.origin-bottom { transform-origin: bottom !important; }
+
+// 11. BACKDROP FILTERS (The Glass Logic)
+@each $key, $value in $backdrop-blurs {
+  .backdrop-blur-#{$key} {
+    backdrop-filter: blur($value) !important;
+    -webkit-backdrop-filter: blur($value) !important;
+  }
+}
+
+// 12. MIX BLEND MODES
+@each $name, $value in $blend-modes {
+  .mix-blend-#{$name} { mix-blend-mode: $value !important; }
+}
+
+// 13. INTERACTIVITY
+@each $name, $value in $cursors {
+  .cursor-#{$name} { cursor: $value !important; }
+}
+
+@each $name, $value in $user-selects {
+  .select-#{$name} { user-select: $value !important; }
+}
+
+.pointer-events-none { pointer-events: none !important; }
+.pointer-events-auto { pointer-events: auto !important; }
+
+// --- HIGHLIGHT ANIMATION ---
+@keyframes highlight-pulse {
+  0% { background-color: rgba(79, 70, 229, 0.15); }
+  100% { background-color: transparent; }
+}
+
+.heading-highlight {
+  animation: highlight-pulse 2s ease-out forwards;
+  border-radius: 0.5rem;
+}

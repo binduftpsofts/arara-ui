@@ -1,0 +1,29 @@
+// 1. Core Data (The foundation for all other variables)
+@forward 'colors';
+@forward 'spacing';
+@forward 'breakpoints';
+
+// 2. Typography Scale & Implementation
+@forward 'fonts';
+@forward 'font-sizes';
+@forward 'font-weights';
+@forward 'line-heights';
+@forward 'letter-spacings';
+@forward 'typography';
+
+// 3. Shape & Visuals
+@forward 'radii';
+@forward 'borders';
+@forward 'rings';
+@forward 'shadows';
+@forward 'visuals';
+
+// 4. Layout & Structure
+@forward 'container';
+@forward 'layout';
+
+// 5. Motion & Depth
+@forward 'transitions';
+@forward 'z-index';
+
+@forward 'interactivity';

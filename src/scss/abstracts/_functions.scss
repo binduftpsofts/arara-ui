@@ -1,0 +1,140 @@
+@use "sass:math";
+@use "sass:map";
+@use "sass:string";
+@use "sass:list";
+@use "../variables" as vars;
+
+// ==========================================================================
+// ABSTRACTS: FUNCTIONS
+// ==========================================================================
+
+// 1. UNIT CONVERSION & MATH
+// --------------------------------------------------------------------------
+
+/// Convert pixels to rem
+/// @param {Number} $px - Value in pixels
+/// @param {Number} $base - Base font size (defaults to 16px)
+
+@function rem($px, $base: 16px) {
+  @if not math.is-unitless($px) {
+    $px: math.div($px, 1px);
+  }
+  @return math.div($px, 16) * 1rem;
+}
+
+/// Strip unit from a value (e.g., 16px -> 16)
+@function strip-unit($value) {
+  @if type-of($value) == 'number' and not math.is-unitless($value) {
+    @return math.div($value, $value * 0 + 1);
+  }
+  @return $value;
+}
+
+/// Fluid Value Generator (Clamp)
+/// Scales a value between min and max across specific screen widths
+@function fluid($min-size, $max-size, $min-breakpoint: 640px, $max-breakpoint: 1280px) {
+  $min-size-rem: rem($min-size);
+  $max-size-rem: rem($max-size);
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $y-axis-intersection: -$min-breakpoint * $slope + $min-size;
+  
+  @return clamp(#{$min-size-rem}, #{math.div($y-axis-intersection, 16) * 1rem} + #{$slope * 100vw}, #{$max-size-rem});
+}
+
+
+// 2. SAFE MAP GETTERS (Data Integrity)
+// --------------------------------------------------------------------------
+
+/// Get Color from $colors map with error handling
+@function clr($key) {
+  @if map.has-key(vars.$colors, $key) {
+    @return map.get(vars.$colors, $key);
+  }
+  @error "Color '#{$key}' not found. Available keys: #{map.keys(vars.$colors)}";
+}
+
+/// Get Spacing from $spacers map
+@function space($key) {
+  @if map-has-key($spacers, $key) {
+    @return map.get($spacers, $key);
+  }
+  @error "Spacing unit '#{$key}' not found. Available keys: #{map-keys($spacers)}";
+}
+
+/// Deep Get for nested maps
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+  @return $map;
+}
+
+
+// 3. ADVANCED COLOR LOGIC
+// --------------------------------------------------------------------------
+
+/// Add transparency to a color variable
+@function rgba-hex($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+/// Natural Tints and Shades (Designer Grade)
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/// WCAG Contrast Checker
+/// Returns either black or white based on background lightness
+@function contrast-color($color) {
+  $lightness: lightness($color);
+  
+  @if ($lightness > 60) {
+    @return #000000;
+  } @else {
+    @return #ffffff;
+  }
+}
+
+
+// 4. STRING & CHARACTER LOGIC (Class Generation)
+// --------------------------------------------------------------------------
+
+/// Escape special characters in class names (like / or .)
+@function str-replace($string, $search, $replace: '') {
+  $index: string.index($string, $search);
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace + str-replace(string.slice($string, $index + string.length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+// 5. BREAKPOINT HELPERS
+// --------------------------------------------------------------------------
+
+/// Find the next breakpoint in the map
+@function breakpoint-next($name) {
+  $keys: map.keys(vars.$breakpoints);
+  $n: list.index($keys, $name);
+  
+  @if ($n < list.length($keys)) {
+    @return list.nth($keys, $n + 1);
+  } @else {
+    @return null;
+  }
+}
+
+/// Get Min-Width of a breakpoint
+@function breakpoint-min($name) {
+  $min: map.get(vars.$breakpoints, $name);
+  
+  @if ($min != 0) {
+    @return $min;
+  } @else {
+    @return null;
+  }
+}

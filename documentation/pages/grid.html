@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA grid system — 12-column engine, spans, fractions, and responsive layouts.">
+  <title>Grid System | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="grid" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="grid" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Grid System</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          A powerful 12-column grid engine for building complex, responsive layouts with ease. Support for spanning, fractional widths, and automatic column sizing.
+        </p>
+
+        <!-- Grid Columns -->
+        <div id="columns" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Grid Columns</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control columns using <code class="font-mono text-indigo-600">grid-cols-{1-12}</code>.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview">
+              <div class="w-full">
+                <p class="text-[10px] font-mono text-slate-400 mb-3 uppercase">grid-cols-3</p>
+                <div class="grid grid-cols-3 gap-3">
+                  <div class="h-10 bg-indigo-200 border border-indigo-300 rounded-lg"></div>
+                  <div class="h-10 bg-indigo-200 border border-indigo-300 rounded-lg"></div>
+                  <div class="h-10 bg-indigo-200 border border-indigo-300 rounded-lg"></div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="grid grid-cols-3 gap-4"&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Spanning -->
+        <div id="spanning" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Column Spanning</h2>
+          <p class="text-slate-600 mb-8 text-sm">Make elements span across multiple columns using <code class="font-mono text-indigo-600">col-span-{n}</code>.</p>
+          
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 mb-8">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="col-span-3 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">col-span-3</div>
+              <div class="h-12 bg-indigo-300 rounded-lg"></div>
+              <div class="h-12 bg-indigo-300 rounded-lg"></div>
+              <div class="col-span-2 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center font-bold">col-span-2</div>
+              <div class="h-12 bg-indigo-300 rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Fractions -->
+        <div id="fractions" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Fractions &amp; Widths</h2>
+          <p class="text-slate-600 mb-8 text-sm">Use percentage-based widths for flexible non-grid layouts.</p>
+          
+          <div class="space-y-4 p-4 bg-slate-50 rounded-xl border border-slate-100 mb-8">
+            <div class="w-1/2 h-10 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-xs font-bold">w-1/2 (50%)</div>
+            <div class="w-1/3 h-10 bg-indigo-500 text-white rounded-lg flex items-center justify-center text-xs font-bold">w-1/3 (33%)</div>
+            <div class="w-3/4 h-10 bg-indigo-400 text-white rounded-lg flex items-center justify-center text-xs font-bold">w-3/4 (75%)</div>
+            <div class="w-full h-10 bg-indigo-300 text-indigo-900 rounded-lg flex items-center justify-center text-xs font-bold">w-full (100%)</div>
+          </div>
+        </div>
+
+        <!-- Aspect Ratio -->
+        <div id="aspect-ratio" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Aspect Ratio</h2>
+          <p class="text-slate-600 mb-8 text-sm">Ensure boxes maintain specific proportions.</p>
+          
+          <div class="grid grid-cols-2 gap-8 mb-8">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">aspect-video (16/9)</p>
+              <div class="aspect-video bg-slate-200 rounded-xl border border-slate-300 flex items-center justify-center text-slate-500">Video Content</div>
+            </div>
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">aspect-square (1/1)</p>
+              <div class="aspect-square bg-slate-200 rounded-xl border border-slate-300 flex items-center justify-center text-slate-500">Avatar / Icon</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="flexbox.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Display &amp; Flexbox</span>
+          </a>
+          <a href="borders.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Borders &amp; Radius →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#grid" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Grid System</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#columns" class="hover:text-indigo-600 transition-colors">Columns</a></li>
+              <li><a href="#spanning" class="hover:text-indigo-600 transition-colors">Spanning</a></li>
+              <li><a href="#fractions" class="hover:text-indigo-600 transition-colors">Fractions</a></li>
+              <li><a href="#aspect-ratio" class="hover:text-indigo-600 transition-colors">Aspect Ratio</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

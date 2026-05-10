@@ -1,0 +1,61 @@
+// src/scss/variables/_typography.scss
+@use 'sass:map';
+@use 'fonts' as *;
+@use 'font-sizes' as *;
+@use 'font-weights' as *;
+@use 'line-heights' as *;
+@use 'letter-spacings' as *;
+@use 'colors' as *;
+@use 'spacing' as *; 
+
+// 1. Root & Body Defaults
+$font-family-base:      map.get($font-families, "sans") !default;
+$font-size-base:        map.get($font-sizes, "base") !default;
+$font-weight-base:      map.get($font-weights, "normal") !default;
+$line-height-base:      map.get($line-heights, "normal") !default;
+$letter-spacing-base:   map.get($letter-spacings, "normal") !default;
+$color-text-base:       map.get($colors, "slate-900") !default;
+$color-text-muted:      map.get($colors, "slate-500") !default;
+
+// 2. Heading Global Defaults
+$font-family-heading:   map.get($font-families, "sans") !default;
+$font-weight-heading:   map.get($font-weights, "bold") !default;
+$line-height-heading:   map.get($line-heights, "heading") !default;
+$letter-spacing-heading: map.get($letter-spacings, "tight") !default;
+
+// 3. The Heading Scale (Tag Mapping)
+$h1-size: map.get($font-sizes, "4xl") !default;
+$h2-size: map.get($font-sizes, "3xl") !default;
+$h3-size: map.get($font-sizes, "2xl") !default;
+$h4-size: map.get($font-sizes, "xl") !default;
+$h5-size: map.get($font-sizes, "lg") !default;
+$h6-size: map.get($font-sizes, "base") !default;
+
+// 4. Mobile Heading Scale (Scaling down for smaller screens)
+$h1-size-mobile: map.get($font-sizes, "3xl") !default;
+$h2-size-mobile: map.get($font-sizes, "2xl") !default;
+
+// 5. Links & Decoration
+$link-color:            map.get($colors, "primary") !default;
+$link-decoration:       none !default;
+$link-hover-color:      map.get($colors, "blue-700") !default;
+$link-hover-decoration: underline !default;
+
+// 6. Lists & Blockquotes
+$list-margin-left:      map.get($spacers, "4") !default;
+$blockquote-font-size:  map.get($font-sizes, "lg") !default;
+$blockquote-border-l:   4px solid map.get($colors, "slate-200") !default;
+$blockquote-padding-l:  map.get($spacers, "4") !default;
+
+// 7. Specialized Elements
+$font-family-mono:      map.get($font-families, "mono") !default;
+$font-size-code: 0.875em !default;
+$code-bg:               map.get($colors, "slate-100") !default;
+$code-bg: map.get($colors, "slate-100") !default;
+$code-color:            map.get($colors, "pink-700") !default;
+
+// 8. Global Rendering Settings
+$font-smoothing:        antialiased !default; 
+$text-rendering:        optimizeLegibility !default;
+$paragraph-margin-b:    map.get($spacers, "4") !default;
+

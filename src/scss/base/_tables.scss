@@ -1,0 +1,24 @@
+// base/_tables.scss
+@use 'sass:map';
+@use '../variables' as vars;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  margin-bottom: vars.$paragraph-margin-b;
+}
+
+th, td {
+  padding: map.get(vars.$spacers, "3") map.get(vars.$spacers, "4");
+  border-bottom: 1px solid map.get(vars.$colors, "slate-100");
+}
+
+th {
+  font-weight: map.get(vars.$font-weights, "bold");
+  background-color: map.get(vars.$colors, "slate-50");
+  color: map.get(vars.$colors, "slate-900");
+}
+
+tr:hover td {
+  background-color: map.get(vars.$colors, "slate-50");
+}

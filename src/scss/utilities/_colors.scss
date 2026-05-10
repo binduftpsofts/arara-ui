@@ -1,0 +1,49 @@
+// ==========================================================================
+// UTILITIES: COLORS (Text, Background, Border)
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+@each $name, $color in $colors {
+  // 1. Text Colors
+  .text-#{$name} { 
+    color: $color !important; 
+  }
+  
+  // 2. Background Colors
+  .bg-#{$name} { 
+    background-color: $color !important; 
+  }
+  
+  // 3. Border Colors
+  .border-#{$name} { 
+    border-color: $color !important; 
+  }
+
+  // 4. Hover Variants (State utilities)
+  .hover\:text-#{$name}:hover { 
+    color: $color !important; 
+  }
+  .hover\:bg-#{$name}:hover { 
+    background-color: $color !important; 
+  }
+  .hover\:border-#{$name}:hover { 
+    border-color: $color !important; 
+  }
+
+  // 5. Opacity Variants (Tailwind-style /20, /50, /80)
+  // We use your 'str-replace' function here to handle the slash in class names
+  .bg-#{$name}\/10 { background-color: rgba($color, 0.1) !important; }
+  .bg-#{$name}\/20 { background-color: rgba($color, 0.2) !important; }
+  .bg-#{$name}\/50 { background-color: rgba($color, 0.5) !important; }
+  .bg-#{$name}\/80 { background-color: rgba($color, 0.8) !important; }
+  
+  .text-#{$name}\/50 { color: rgba($color, 0.5) !important; }
+}
+
+// 6. Special Color Utilities
+.bg-transparent { background-color: transparent !important; }
+.text-transparent { color: transparent !important; }
+.border-transparent { border-color: transparent !important; }
+.bg-current { background-color: currentColor !important; }
+.text-current { color: currentColor !important; }

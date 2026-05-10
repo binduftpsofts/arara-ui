@@ -1,0 +1,34 @@
+// base/_global.scss
+@use 'sass:map';
+@use '../variables' as vars;
+
+
+// 1. Text Selection
+::selection {
+  background-color: rgba(map.get(vars.$colors, "primary"), 0.2);
+  color: map.get(vars.$colors, "slate-900");
+}
+
+// 2. Keyboard Focus (Accessibility)
+:focus-visible {
+  outline: 2px solid map.get(vars.$colors, "primary");
+  outline-offset: 2px;
+}
+
+// 3. Simple Scrollbar Polish (Modern browsers)
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: map.get(vars.$colors, "slate-50");
+}
+
+::-webkit-scrollbar-thumb {
+  background: map.get(vars.$colors, "slate-300");
+  border-radius: 10px;
+  
+  &:hover {
+    background: map.get(vars.$colors, "slate-400");
+  }
+}

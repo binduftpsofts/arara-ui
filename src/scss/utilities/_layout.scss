@@ -1,0 +1,138 @@
+// ==========================================================================
+// UTILITIES: LAYOUT (Display, Position, Flex, Grid)
+// ==========================================================================
+
+@use 'sass:list';
+@use '../abstracts' as *;
+
+// 1. DISPLAY UTILITIES
+// Creates: .block, .flex, .grid, .hidden, etc.
+@each $name, $value in $displays {
+  .#{$name} { display: $value !important; }
+}
+
+// 2. POSITIONING
+// Creates: .relative, .absolute, .fixed, .sticky
+@each $pos in (relative, absolute, fixed, sticky, static) {
+  .#{$pos} { position: $pos !important; }
+}
+
+// 3. PLACEMENT (Top, Right, Bottom, Left)
+// Uses the spacing map to allow classes like .top-0, .left-4, .inset-0
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  .top-#{$class-key}    { top: $value !important; }
+  .right-#{$class-key}  { right: $value !important; }
+  .bottom-#{$class-key} { bottom: $value !important; }
+  .left-#{$class-key}   { left: $value !important; }
+  
+  .inset-#{$class-key} {
+    top: $value !important;
+    right: $value !important;
+    bottom: $value !important;
+    left: $value !important;
+  }
+}
+
+// 4. Z-INDEX
+// Creates: .z-0, .z-10... and semantic .z-modal, .z-tooltip
+@each $name, $value in $z-indexes {
+  .z-#{$name} { z-index: $value !important; }
+}
+@each $name, $value in $z-layers {
+  .z-#{$name} { z-index: $value !important; }
+}
+
+// 5. FLEXBOX & GRID ALIGNMENT (Justify & Align)
+@each $name, $value in $justify-content {
+  .justify-#{$name} { justify-content: $value !important; }
+}
+@each $name, $value in $align-items {
+  .items-#{$name} { align-items: $value !important; }
+}
+@each $name, $value in $align-self {
+  .self-#{$name} { align-self: $value !important; }
+}
+
+// 6. FLEXBOX DIRECTION & WRAP
+@each $name, $value in $flex-directions {
+  .flex-#{$name} { flex-direction: $value !important; }
+}
+@each $name, $value in $flex-wraps {
+  .flex-#{$name} { flex-wrap: $value !important; }
+}
+
+// 7. FLEX GROW & SHRINK
+@each $name, $value in $flex-grow {
+  @if $name == "DEFAULT" {
+    .grow { flex-grow: $value !important; }
+  } @else {
+    .grow-#{$name} { flex-grow: $value !important; }
+  }
+}
+@each $name, $value in $flex-shrink {
+  @if $name == "DEFAULT" {
+    .shrink { flex-shrink: $value !important; }
+  } @else {
+    .shrink-#{$name} { flex-shrink: $value !important; }
+  }
+}
+
+// 8. OVERFLOW
+@each $name, $value in $overflows {
+  .overflow-#{$name}   { overflow: $value !important; }
+  .overflow-x-#{$name} { overflow-x: $value !important; }
+  .overflow-y-#{$name} { overflow-y: $value !important; }
+}
+
+// --- Advanced Grid Utilities ---
+
+// 9. Grid Template Columns
+// Creates .grid-cols-1 through .grid-cols-12
+@for $i from 1 through $grid-columns {
+  .grid-cols-#{$i} { 
+    grid-template-columns: repeat(#{$i}, minmax(0, 1fr)) !important; 
+  }
+}
+
+// 10. Grid Column Span
+// Creates .col-span-1, .col-span-full, etc.
+@each $key, $value in $grid-spans {
+  .col-#{$key} { grid-column: $value !important; }
+}
+
+// 11. Width & Height (Fixed & Percentage)
+@each $key, $value in $spacers {
+  $class-key: str-replace($key, ".", "_");
+  .w-#{$class-key} { width: $value !important; }
+  .h-#{$class-key} { height: $value !important; }
+}
+
+@each $key, $value in $fractions {
+  $class-key: str-replace($key, "/", "_");
+  .w-#{$class-key} { width: $value !important; }
+  .h-#{$class-key} { height: $value !important; }
+}
+
+// 12. Max/Min Constraints
+.w-screen  { width: 100vw !important; }
+.h-screen  { height: 100vh !important; }
+.max-w-full { max-width: 100% !important; }
+.min-h-0    { min-height: 0px !important; }
+
+// 13. Aspect Ratios (Modern Standard)
+@each $name, $ratio in $aspect-ratios {
+  .aspect-#{$name} {
+    aspect-ratio: calc(list.nth($ratio, 1) / list.nth($ratio, 2)) !important;
+  }
+}
+
+// 14. Visibility
+.visible   { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+
+// 15. Floats (For text-wrapping around images)
+@each $name, $value in $floats {
+  .float-#{$name} { float: $value !important; }
+}
+.clear-both { clear: both !important; }

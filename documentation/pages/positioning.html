@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA positioning utilities — relative, absolute, fixed, z-index layers, and interactive cursors.">
+  <title>Z-Index &amp; Positioning | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center justify-between p-4 px-6 h-16">
+      <div class="flex items-center gap-3">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+        <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-mono ml-2">v0.1.0</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+        <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="positioning" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="positioning" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Z-Index &amp; Positioning</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          Control the placement and stacking order of elements. ArarA provides a robust semantic Z-index system and precise positioning utilities for complex UI components like tooltips, modals, and sticky headers.
+        </p>
+
+        <!-- Position -->
+        <div id="position" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Positioning</h2>
+          <p class="text-slate-600 mb-8 text-sm">Use <code class="font-mono text-indigo-600">relative</code>, <code class="font-mono text-indigo-600">absolute</code>, <code class="font-mono text-indigo-600">fixed</code>, or <code class="font-mono text-indigo-600">sticky</code> to control how an element is placed in the document.</p>
+          
+          <div class="space-y-8 mb-8">
+            <div class="p-8 bg-slate-100 rounded-2xl border border-slate-200 relative h-32">
+              <div class="absolute top-0 right-0 p-4 bg-indigo-600 text-white rounded-bl-xl font-bold text-xs">absolute top-0 right-0</div>
+              <p class="text-slate-500">Relative Container</p>
+            </div>
+            <div class="p-8 bg-slate-100 rounded-2xl border border-slate-200 relative h-32 flex items-center justify-center">
+              <div class="absolute -top-4 bg-indigo-600 text-white px-4 py-2 rounded-full font-bold text-xs shadow-lg">-top-4 (Offset)</div>
+              <p class="text-slate-500">Relative Container</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Z-Index -->
+        <div id="z-index" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Z-Index Scale</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the stacking order of overlapping elements.</p>
+          
+          <div class="relative h-48 mb-8">
+            <div class="absolute top-0 left-0 w-32 h-32 bg-slate-200 rounded-2xl z-10 flex items-end p-4 border border-slate-300"><p class="text-xs font-mono font-bold">z-10</p></div>
+            <div class="absolute top-8 left-8 w-32 h-32 bg-slate-300 rounded-2xl z-20 flex items-end p-4 border border-slate-400"><p class="text-xs font-mono font-bold">z-20</p></div>
+            <div class="absolute top-16 left-16 w-32 h-32 bg-indigo-600 rounded-2xl z-30 flex items-end p-4 shadow-xl text-white"><p class="text-xs font-mono font-bold">z-30</p></div>
+          </div>
+
+          <h3 class="text-lg font-bold text-slate-800 mb-4 mt-12">Semantic Layers</h3>
+          <p class="text-slate-600 mb-6 text-sm">Industry-standard layers for common UI components.</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center"><p class="text-xs font-mono text-indigo-600 font-bold mb-1">z-sticky</p><p class="text-xs text-slate-400">1020</p></div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center"><p class="text-xs font-mono text-indigo-600 font-bold mb-1">z-fixed</p><p class="text-xs text-slate-400">1030</p></div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center"><p class="text-xs font-mono text-indigo-600 font-bold mb-1">z-modal</p><p class="text-xs text-slate-400">1050</p></div>
+            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center"><p class="text-xs font-mono text-indigo-600 font-bold mb-1">z-tooltip</p><p class="text-xs text-slate-400">1070</p></div>
+          </div>
+        </div>
+
+        <!-- Interactivity -->
+        <div id="interactivity" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Interactivity</h2>
+          <p class="text-slate-600 mb-8 text-sm">Utilities for controlling mouse behavior and text selection.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl text-center cursor-pointer hover:bg-slate-100 transition-colors">
+              <p class="text-xs font-mono font-bold text-indigo-600">cursor-pointer</p>
+            </div>
+            <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl text-center cursor-not-allowed">
+              <p class="text-xs font-mono font-bold text-indigo-600">cursor-not-allowed</p>
+            </div>
+            <div class="p-6 bg-slate-50 border border-slate-100 rounded-xl text-center select-none">
+              <p class="text-xs font-mono font-bold text-indigo-600">select-none</p>
+              <p class="text-[10px] text-slate-400 mt-1">Can't select me</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="responsive.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Breakpoints</span>
+          </a>
+          <a href="customization.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Customization →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#positioning" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Z-Index &amp; Positioning</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#position" class="hover:text-indigo-600 transition-colors">Positioning</a></li>
+              <li><a href="#z-index" class="hover:text-indigo-600 transition-colors">Z-Index Scale</a></li>
+              <li><a href="#interactivity" class="hover:text-indigo-600 transition-colors">Interactivity</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+// variables/_breakpoints.scss
+
+// 1. Standard Width Breakpoints (Min-Width / Mobile-First)
+$breakpoints: (
+  "xs": 320px,
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+  "3xl": 1920px
+) !default;
+
+// 2. Device Orientation (For specific mobile layouts)
+$orientations: (
+  "portrait":  "(orientation: portrait)",
+  "landscape": "(orientation: landscape)"
+) !default;
+
+// 3. Display Density (For Retina/High-res images)
+$display-densities: (
+  "retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
+  "high-res": "(-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi)"
+) !default;
+
+// 4. Interaction Media (Detecting Mouse vs. Touch)
+// Very important: prevent hover effects on touch devices to avoid "sticky" hovers
+$interactions: (
+  "touch": "(hover: none)",
+  "mouse": "(hover: hover)"
+) !default;
+
+// 5. Light/Dark Mode (System Preference)
+$color-schemes: (
+  "light": "(prefers-color-scheme: light)",
+  "dark":  "(prefers-color-scheme: dark)"
+) !default;

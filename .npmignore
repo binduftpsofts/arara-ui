@@ -1,0 +1,32 @@
+# Exclude source and docs - publish only dist, README, LICENSE, package.json by default
+src/
+documentation/
+docs/
+examples/
+tests/
+test/
+
+# Editor and OS files
+.vscode/
+.DS_Store
+thumbs.db
+
+# Build intermediates and configs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+pnpm-lock.yaml
+
+# CI/CD
+.github/
+.gitlab/
+circleci/
+
+# Misc
+*.tgz
+*.zip
+*.env
+coverage/
+*.tgz

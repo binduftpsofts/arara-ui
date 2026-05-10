@@ -1,0 +1,17 @@
+// ==========================================================================
+// UTILITIES: MASTER HUB
+// ==========================================================================
+
+// 1. Core Structural Utilities
+@forward 'layout';    // Display, Flex, Grid, Positioning
+@forward 'spacing';   // Padding, Margin, Gap, Space-between
+
+// 2. Content & Polish Utilities
+@forward 'typography'; // Font sizes, weights, rendering
+@forward 'colors';     // Text, Background, Border colors & Opacity
+@forward 'visuals';    // Shadows, Radii, Transitions, Glassmorphism
+
+// 3. The Responsive Wrapper (THE FINAL LAYER)
+// This file re-runs your logic inside media queries.
+// It MUST be loaded last so responsive classes have higher specificity.
+@forward 'responsive';

@@ -1,0 +1,36 @@
+// variables/_z-index.scss
+
+// 1. Core Scale
+$z-indexes: (
+  "0":      0,
+  "10":     10,
+  "20":     20,
+  "30":     30,
+  "40":     40,
+  "50":     50,
+  "auto":   auto,
+  "hide":   -1
+) !default;
+
+// 2. Micro-steps (For stacking inside a component)
+$z-steps: (
+  "above":  1,
+  "below": -1,
+  "top":    9
+) !default;
+
+// 3. Global Semantic Stack (Industry Standard)
+$z-layers: (
+  "base":      0,
+  "dropdown":  1000,
+  "sticky":    1020,
+  "fixed":     1030,
+  "backdrop":  1040, // Modal overlay
+  "modal":     1050,
+  "popover":   1060,
+  "tooltip":   1070,
+  "toast":     1080,
+  "max":       9999  // Emergency use only
+) !default;
+
+$z-isolate: isolate !default;

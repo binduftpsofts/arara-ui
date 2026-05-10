@@ -1,0 +1,79 @@
+//base/_typography.scss
+@use 'sass:map';
+@use '../abstracts' as *;
+
+
+// ==========================================================================
+// BASE: GLOBAL TYPOGRAPHY & STRUCTURE
+// ==========================================================================
+
+html {
+  font-size: $font-size-base;
+}
+
+body {
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $color-text-base;
+  -webkit-font-smoothing: $font-smoothing;
+  text-rendering: $text-rendering;
+}
+
+// 1. Heading Defaults
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-heading;
+  line-height: $line-height-heading;
+  letter-spacing: $letter-spacing-heading;
+  color: inherit; 
+}
+
+// 2. Heading Scale
+h1 { font-size: $h1-size; }
+h2 { font-size: $h2-size; }
+h3 { font-size: $h3-size; }
+h4 { font-size: $h4-size; }
+h5 { font-size: $h5-size; }
+h6 { font-size: $h6-size; }
+
+// 3. Paragraphs & Lists
+p, ul, ol, dl, blockquote {
+  margin-bottom: $paragraph-margin-b;
+}
+
+// 4. Inline Elements
+small {
+  font-size: map.get($font-sizes, "sm");
+}
+
+code, kbd, samp, pre {
+  font-family: $font-family-mono;
+  font-size: $font-size-code;
+  background-color: $code-bg;
+  color: $code-color;
+  padding: 0.2em 0.4em;
+  border-radius: map.get($radii, "sm");
+}
+
+// 5. Blockquotes
+blockquote {
+  padding-left: $blockquote-padding-l;
+  border-left: $blockquote-border-l;
+  font-size: $blockquote-font-size;
+  font-style: italic;
+  color: $color-text-muted;
+}
+
+// 6. Responsive Typography
+@include respond-to(sm) {
+  h1 { font-size: $h1-size-mobile; }
+  h2 { font-size: $h2-size-mobile; }
+}
+
+// 7. Structural Customization
+section {
+  border-radius: map.get($radii, "base"); // Using your 0.5rem variable
+  padding: map.get($spacers, "4");       // Using your 1.5rem variable
+  box-shadow: map.get($shadows, "inner"); // Link to your 'inner' shadow token
+}

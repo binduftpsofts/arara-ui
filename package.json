@@ -1,0 +1,54 @@
+{
+  "name": "arara-ui",
+  "version": "0.1.16",
+  "description": "An utility-first CSS design system. Provides Sass source, compiled distributable CSS, and documentation; intended for internal use and public npm/CDN distribution. Build with `npm run build`.",
+  "module": "dist/js/index.mjs",
+  "main": "dist/js/index.cjs.js",
+  "style": "dist/css/style.css",
+  "exports": {
+    ".": {
+      "import": "./dist/js/index.mjs",
+      "require": "./dist/js/index.cjs.js",
+      "style": "./dist/css/style.css"
+    },
+    "./css": "./dist/css/style.css",
+    "./style": "./dist/css/style.css"
+  },
+  "scripts": {
+    "build": "sass src/scss/main.scss dist/css/style.css --style=compressed --no-source-map",
+    "build:dev": "sass src/scss/main.scss dist/css/style.css --style=expanded --source-map",
+    "watch": "sass src/scss/main.scss dist/css/style.css --watch",
+    "prepublishOnly": "npm run build",
+    "prepare": "npm run build"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "css",
+    "scss",
+    "utility",
+    "design-system",
+    "arara"
+  ],
+  "author": "Md. Fazle Rabbi Bindu <fazlerabbibindu@gmail.com>",
+  "maintainers": [
+    "Md. Fazle Rabbi Bindu <fazlerabbibindu@gmail.com>",
+    "Fintech Point <support@fintech-point.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FazleRabbiBindu/arara.git"
+  },
+  "bugs": {
+    "url": "https://github.com/FazleRabbiBindu/arara/issues"
+  },
+  "homepage": "https://github.com/FazleRabbiBindu/arara#readme",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.99.0"
+  }
+}

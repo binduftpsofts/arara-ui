@@ -1,0 +1,18 @@
+// variables/_rings.scss
+$ring-widths: (
+  "0": 0px,
+  "1": 1px,
+  "2": 2px,
+  "3": 3px,
+  "4": 4px
+) !default;
+
+// The gap between the element's edge and the ring
+$ring-offsets: (
+  "0": 0px,
+  "1": 1px,
+  "2": 2px,
+  "4": 4px
+) !default;
+
+$ring-default-color: rgba(59, 130, 246, 0.5) !default;

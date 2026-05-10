@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA — A high-performance, utility-first CSS framework for the modern web.">
+  <title>Introduction | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <!-- Top Navbar -->
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="./documentation/assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="documentation/pages/installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+
+    <!-- Sidebar populated by nav.js -->
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="introduction" data-root="./"></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="introduction" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <div class="mb-12">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-widest mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            v0.1.0 Beta
+          </div>
+          <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+            The high-performance <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">utility-first</span> engine for premium aesthetics.
+          </h1>
+          <p class="text-xl text-slate-600 leading-relaxed max-w-3xl">
+            ArarA is more than a CSS library. It's a mathematically-grounded design system built on a robust Sass architecture, enabling developers to build stunning, production-ready interfaces with unprecedented speed.
+          </p>
+        </div>
+
+        <!-- Key Pillars -->
+        <div id="pillars" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-8">Design Pillars</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="group p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl hover:-translate-y-1">
+              <div class="w-12 h-12 bg-indigo-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-indigo-100 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Performance</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Built on a modular engine. Import only what you use for a footprint that's often 80% smaller than competitors.</p>
+            </div>
+            <div class="group p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl hover:-translate-y-1">
+              <div class="w-12 h-12 bg-purple-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-purple-100 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Modularity</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Extend, override, or extract. ArarA's Sass tokens let you customize every variable to fit your brand perfectly.</p>
+            </div>
+            <div class="group p-8 rounded-3xl bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl hover:-translate-y-1">
+              <div class="w-12 h-12 bg-pink-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-pink-100 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.172-1.172a4 4 0 015.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656l1.172-1.172"></path></svg>
+              </div>
+              <h3 class="text-lg font-bold text-slate-900 mb-2">Aesthetics</h3>
+              <p class="text-slate-600 text-sm leading-relaxed">Pre-configured with modern design best practices. Shadows, grids, and typography that feel premium by default.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Philosophy -->
+        <div id="philosophy" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-6">Core Philosophy</h2>
+          <div class="bg-indigo-600 rounded-3xl p-8 md:p-12 text-white shadow-2xl shadow-indigo-200 relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-2xl font-bold mb-4">Utility-First, Component-Friendly.</h3>
+              <p class="text-indigo-100 text-lg leading-relaxed max-w-2xl mb-8">
+                ArarA provides a low-level utility layer that empowers you to build any design, but it doesn't stop there. It's built to bridge the gap between "messy" rapid prototyping and "clean" component-based production.
+              </p>
+              <div class="flex flex-wrap gap-4">
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <span class="block text-xl font-bold">100%</span>
+                  <span class="text-xs text-indigo-200 uppercase tracking-widest">Sass Based</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <span class="block text-xl font-bold">128+</span>
+                  <span class="text-xs text-indigo-200 uppercase tracking-widest">Color Tokens</span>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <span class="block text-xl font-bold">&lt; 15kb</span>
+                  <span class="text-xs text-indigo-200 uppercase tracking-widest">Core Size</span>
+                </div>
+              </div>
+            </div>
+            <!-- Decorative circle -->
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+
+        <!-- Quick Start -->
+        <div id="quick-start" class="mb-16 scroll-mt-24">
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-2xl font-bold text-slate-900">Example</h2>
+            <a href="documentation/pages/installation.html" class="text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">View Installation →</a>
+          </div>
+          
+          <div class="showcase">
+            <div class="showcase-preview bg-slate-50 p-12">
+              <div class="w-full max-w-sm bg-white p-6 rounded-3xl shadow-xl border border-slate-100 transition-all hover:-translate-y-2 hover:shadow-2xl">
+                <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl mb-6 shadow-lg shadow-indigo-100 flex items-center justify-center text-white">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"></path>
+                  </svg>
+                </div>
+                
+                <h4 class="text-xl font-bold text-slate-900 mb-2">Premium Experience</h4>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">Build beautiful interfaces with zero configuration. ArarA handles the heavy lifting.</p>
+                <button class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 transition-all">Get Started Now</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="p-6 rounded-3xl shadow-xl border border-slate-100"&gt;
+  &lt;div class="w-12 h-12 bg-indigo-600 rounded-2xl mb-6 shadow-lg flex items-center justify-center text-white"&gt;
+    &lt;svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;
+      &lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-7.714 2.143L11 21l-2.286-6.857L1 12l7.714-2.143L11 3z"&gt;&lt;/path&gt;
+    &lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;h4 class="text-xl font-bold text-slate-900"&gt;...&lt;/h4&gt;
+  &lt;p class="text-slate-500 text-sm"&gt;...&lt;/p&gt;
+  &lt;button class="w-full py-3 bg-slate-900 text-white rounded-xl"&gt;
+    Get Started
+  &lt;/button&gt;
+&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <div class="chapter-nav__link"></div>
+          <a href="documentation/pages/installation.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Installation →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#introduction" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Introduction</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#why-arara" class="hover:text-indigo-600 transition-colors">Why ArarA?</a></li>
+              <li><a href="#philosophy" class="hover:text-indigo-600 transition-colors">Core Philosophy</a></li>
+              <li><a href="#quick-start" class="hover:text-indigo-600 transition-colors">Quick Start</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="documentation/scripts/nav.js"></script>
+  <script src="documentation/scripts/toc.js"></script>
+  <script src="./documentation/scripts/code.js"></script>
+</body>
+</html>

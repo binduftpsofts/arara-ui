@@ -1,0 +1,47 @@
+// variables/_borders.scss
+
+// 1. Widths (The thickness)
+$border-widths: (
+  "0": 0px,
+  "1": 1px,
+  "2": 2px,
+  "4": 4px,
+  "8": 8px
+) !default;
+
+// 2. Styles
+$border-styles: (
+  "solid":  solid,
+  "dashed": dashed,
+  "dotted": dotted,
+  "double": double,
+  "none":   none
+) !default;
+
+// 3. NEW: Outline Offset (Space between element and outline)
+$outline-offsets: (
+  "0": 0px,
+  "1": 1px,
+  "2": 2px,
+  "4": 4px,
+  "8": 8px
+) !default;
+
+// 4. NEW: Border Opacity Scale
+// This allows for subtle borders like .border-slate-500/20
+$border-opacities: (
+  "0":   0,
+  "5":   0.05,
+  "10":  0.1,
+  "20":  0.2,
+  "30":  0.3,
+  "50":  0.5,
+  "75":  0.75,
+  "100": 1
+) !default;
+
+// 5. System Defaults
+$border-default-color: rgba(148, 163, 184, 0.2) !default;
+$border-focus-width: 2px !default;
+$border-focus-color: #3b82f6 !default; // Usually maps to your primary color
+$border-transparent: transparent !important;

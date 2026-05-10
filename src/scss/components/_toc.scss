@@ -1,0 +1,86 @@
+@use '../abstracts' as abs;
+
+// --- TABLE OF CONTENTS (Right Sidebar) ---
+.toc {
+  display: none; // Hidden by default (Mobile/Tablet)
+
+  @include abs.respond-to(lg) {
+    display: block;
+    position: sticky;
+    top: 64px; // Navbar height
+    height: calc(100vh - 64px);
+    width: 280px;
+    flex-shrink: 0;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: transparent;
+    // Hide scrollbar for cleaner look but keep functionality
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #f1f5f9;
+      border-radius: 10px;
+    }
+  }
+}
+
+.toc-tree {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  // Parent links
+  > ul > li {
+    margin-bottom: 1.5rem;
+
+    > a {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0f172a;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #4f46e5;
+      }
+
+      &.is-active {
+        color: #4f46e5;
+      }
+    }
+  }
+
+  // Nested links
+  ul ul {
+    border-left: 2px solid #f1f5f9;
+    margin-left: 0.5rem;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    li a {
+      font-size: 0.8125rem;
+      color: #64748b;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: block;
+
+      &:hover {
+        color: #4f46e5;
+        transform: translateX(2px);
+      }
+
+      &.is-active {
+        color: #4f46e5;
+        font-weight: 600;
+      }
+    }
+  }
+}

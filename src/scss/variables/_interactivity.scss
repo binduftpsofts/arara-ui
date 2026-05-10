@@ -1,0 +1,30 @@
+// variables/_interactivity.scss
+$cursors: (
+  "auto":          auto,
+  "default":       default,
+  "pointer":       pointer,
+  "wait":          wait,
+  "text":          text,
+  "move":          move,
+  "not-allowed":   not-allowed,
+  "zoom-in":       zoom-in,
+  "zoom-out":      zoom-out
+) !default;
+
+$user-selects: (
+  "none": none,
+  "text": text,
+  "all":  all,
+  "auto": auto
+) !default;
+
+$pointer-events: (
+  "none": none,
+  "auto": auto
+) !default;
+
+// Appearance (Resetting native browser styling for inputs)
+$appearances: (
+  "none": none,
+  "auto": auto
+) !default;

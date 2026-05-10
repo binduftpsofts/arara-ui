@@ -1,0 +1,117 @@
+// ==========================================================================
+// UTILITIES: TYPOGRAPHY
+// ==========================================================================
+
+@use '../abstracts' as *;
+@use 'sass:map';
+
+// 1. Font Families
+@each $name, $family in $font-families {
+  .font-#{$name} { font-family: #{$family} !important; }
+}
+
+// 2. Font Sizes
+@each $name, $size in $font-sizes {
+  .text-#{$name} { font-size: $size !important; }
+}
+
+// 3. Font Weights
+@each $name, $weight in $font-weights {
+  .font-#{$name} { font-weight: $weight !important; }
+}
+
+// 4. Line Heights (Leading)
+@each $name, $height in $line-heights {
+  .leading-#{$name} { line-height: $height !important; }
+}
+
+// 5. Letter Spacing (Tracking)
+@each $name, $spacing in $letter-spacings {
+  .tracking-#{$name} { letter-spacing: $spacing !important; }
+}
+
+// 6. Text Alignment
+.text-left    { text-align: left !important; }
+.text-center  { text-align: center !important; }
+.text-right   { text-align: right !important; }
+.text-justify { text-align: justify !important; }
+
+// 7. Text Transformation
+.uppercase    { text-transform: uppercase !important; }
+.lowercase    { text-transform: lowercase !important; }
+.capitalize   { text-transform: capitalize !important; }
+.normal-case  { text-transform: none !important; }
+
+// 8. Text Decoration
+.underline    { text-decoration: underline !important; }
+.line-through { text-decoration: line-through !important; }
+.no-underline { text-decoration: none !important; }
+
+// 9. Modern Rendering & Truncation
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.truncate {
+  @include truncate; // Using the mixin we built in abstracts
+}
+
+.italic { font-style: italic !important; }
+.not-italic { font-style: normal !important; }
+
+// --- Advanced Rendering Controls ---
+
+// 10. Hyphenation & Word Breaks (Modern Layout)
+.hyphens-auto   { hyphens: auto !important; }
+.break-words    { overflow-wrap: break-word !important; }
+.break-all      { word-break: break-all !important; }
+
+// 11. Font Variant Numeric (Perfect for Tables/Prices)
+// Ensures numbers align perfectly in a column
+.tabular-nums   { font-variant-numeric: tabular-nums !important; }
+.proportional-nums { font-variant-numeric: proportional-nums !important; }
+
+// 12. Text Wrap Strategy (New in 2024-2025 CSS)
+// Prevents "widows" (single words on a new line) in headlines
+.text-balance   { text-wrap: balance !important; }
+.text-pretty    { text-wrap: pretty !important; }
+
+// 13. Dynamic Fluid Typography (Using your 'fluid' function)
+// Generates a class that scales font-size perfectly between mobile and desktop
+.text-fluid-lg { 
+  font-size: fluid(18px, 24px) !important; 
+}
+.text-fluid-xl { 
+  font-size: fluid(20px, 36px) !important; 
+}
+
+// 14. Line Clamping (Standardized for 2026 Compatibility)
+@for $i from 1 through 6 {
+  .line-clamp-#{$i} {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: #{$i}; // Legacy support
+    line-clamp: #{$i} !important; // Modern Standard
+  }
+}
+
+.line-clamp-none {
+  overflow: visible;
+  display: block;
+  -webkit-box-orient: horizontal;
+  -webkit-line-clamp: none;
+  line-clamp: none !important;
+}
+
+// 15. Writing Modes & Vertical Rhythm
+.vertical-rl { writing-mode: vertical-rl !important; }
+.horizontal-tb { writing-mode: horizontal-tb !important; }
+
+// Bangla specific rendering tweak
+.font-bn-smooth {
+  font-family: map.get($font-families, "bangla");
+  line-height: map.get($line-heights, "relaxed"); // Bangla needs more space
+  text-rendering: optimizeLegibility;
+}

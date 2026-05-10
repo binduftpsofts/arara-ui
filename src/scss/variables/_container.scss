@@ -1,0 +1,35 @@
+// src/scss/variables/_container.scss
+@use 'sass:map';
+@use 'breakpoints' as *;
+@use 'spacing' as *;
+
+// 1. Max-Widths (The "Snap" points)
+// These define how wide the content can get at each breakpoint
+$container-max-widths: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px
+) !default;
+
+// 2. Responsive Horizontal Padding
+// This prevents content from touching the screen edges on mobile
+$container-padding: (
+  "default": 1rem,   // Mobile (16px)
+  "md":      1.5rem, // Tablet (24px)
+  "lg":      2rem,   // Desktop (32px)
+  "xl":      3rem    // Wide screens (48px)
+) !default;
+
+// 3. Behavior Settings
+$container-center: true !default; // Should .container have margin-inline: auto?
+
+// 4. NEW: Fluid Container Options
+// For full-width layouts that still need side padding
+$container-fluid-padding: map.get($container-padding, "default") !default;
+
+$container-names: (
+  "main": "content-area",
+  "sidebar": "sidebar-area"
+) !default;

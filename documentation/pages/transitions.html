@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA transitions and animation — durations, easings, and transform utilities.">
+  <title>Transitions &amp; Animation | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="transitions" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="transitions" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Transitions &amp; Animation</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          ArarA provides a smooth transition system to make your interface feel alive. Control durations, easings, and interactive transforms with simple utility classes.
+        </p>
+
+        <!-- Transition Property -->
+        <div id="property" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Transition Property</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control which properties should transition.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview">
+              <div class="flex flex-wrap gap-8 items-center justify-center">
+                <button class="px-6 py-3 bg-white border border-slate-200 rounded-xl transition-all duration-300 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 hover:shadow-lg font-semibold text-sm">transition-all</button>
+                <button class="px-6 py-3 bg-white border border-slate-200 rounded-xl transition-colors duration-300 hover:bg-indigo-600 hover:text-white font-semibold text-sm">transition-colors</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;button class="transition-all duration-300 hover:bg-indigo-600 ..."&gt;
+  transition-all
+&lt;/button&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transforms -->
+        <div id="transforms" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Transforms</h2>
+          <p class="text-slate-600 mb-8 text-sm">Combine scale, rotate, and translate utilities smoothly.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview">
+              <div class="flex flex-wrap gap-12 items-center justify-center">
+                <div class="text-center group">
+                  <div class="h-20 w-20 bg-indigo-600 rounded-2xl transition-transform duration-500 hover:scale-125 hover:rotate-12 shadow-lg"></div>
+                  <p class="text-[10px] font-mono mt-4 text-slate-400">scale + rotate</p>
+                </div>
+                <div class="text-center">
+                  <div class="h-20 w-20 bg-indigo-600 rounded-2xl transition-transform duration-500 hover:translate-x-full shadow-lg"></div>
+                  <p class="text-[10px] font-mono mt-4 text-slate-400">translate-x-full</p>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="transition-transform hover:scale-125 hover:rotate-12"&gt;&lt;/div&gt;
+&lt;div class="transition-transform hover:translate-x-full"&gt;&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="shadows.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Shadows &amp; Elevation</span>
+          </a>
+          <a href="glassmorphism.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Glassmorphism →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#transitions" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Transitions &amp; Animation</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#properties" class="hover:text-indigo-600 transition-colors">Properties</a></li>
+              <li><a href="#duration-easing" class="hover:text-indigo-600 transition-colors">Duration &amp; Easing</a></li>
+              <li><a href="#transforms" class="hover:text-indigo-600 transition-colors">Transforms</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

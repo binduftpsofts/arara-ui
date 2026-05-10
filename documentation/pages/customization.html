@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA customization — overriding Sass variables, using mixins, and extending the framework.">
+  <title>Customization | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center justify-between p-4 px-6 h-16">
+      <div class="flex items-center gap-3">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+        <span class="px-2 py-0.5 bg-slate-100 text-slate-500 rounded text-xs font-mono ml-2">v0.1.0</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+        <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="customization" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="customization" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Customization</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          ArarA is designed to be fully extensible. By leveraging Sass's modular <code class="font-mono text-indigo-600">@use</code> system, you can override every variable, add your own utilities, and use powerful mixins to build a truly unique design system.
+        </p>
+
+        <!-- Sass Architecture -->
+        <div id="architecture" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Sass Architecture</h2>
+          <p class="text-slate-600 mb-8 text-sm">ArarA follows a logical 4-layer structure to keep code organized and maintainable.</p>
+          
+          <div class="space-y-4 mb-8">
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <h3 class="text-base font-bold text-slate-800 mb-2">1. Abstracts (The Brain)</h3>
+              <p class="text-sm text-slate-600">Central variables, functions, and mixins. No CSS is output from this layer.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <h3 class="text-base font-bold text-slate-800 mb-2">2. Base (The Foundation)</h3>
+              <p class="text-sm text-slate-600">Browser resets and global typography defaults.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <h3 class="text-base font-bold text-slate-800 mb-2">3. Components (UI Elements)</h3>
+              <p class="text-sm text-slate-600">Optional higher-level patterns like buttons, cards, and navigation items.</p>
+            </div>
+            <div class="p-6 border border-slate-100 rounded-2xl">
+              <h3 class="text-base font-bold text-slate-800 mb-2">4. Utilities (The Tools)</h3>
+              <p class="text-sm text-slate-600">Atomic classes generated from variables. Loaded last for maximum specificity.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Overriding Variables -->
+        <div id="overriding" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Overriding Variables</h2>
+          <p class="text-slate-600 mb-8 text-sm">To customize the theme, simply define your own variables before importing ArarA's modules. All internal variables use the <code class="font-mono text-indigo-600">!default</code> flag.</p>
+          
+          <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">scss</div>
+            </div>
+            <div class="code-body">
+              <pre><code>// your-styles.scss
+  
+  // 1. Override the primary color
+  $colors: (
+    "primary": #ff4500, // Custom Orange
+    "slate-500": #555555
+  );
+  
+  // 2. Load ArarA
+  @use 'path/to/arara/src/scss/main';</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mixins -->
+        <div id="mixins" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Using Mixins</h2>
+          <p class="text-slate-600 mb-8 text-sm">Use ArarA's internal logic in your own Sass files for consistency.</p>
+
+          <div class="space-y-12">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-4">respond-to($breakpoint)</h3>
+              <p class="text-sm text-slate-600 mb-4">Generate mobile-first media queries effortlessly.</p>
+              <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">css</div>
+            </div>
+            <div class="code-body">
+              <pre><code>.my-custom-card {
+  width: 100%;
+  
+  @include respond-to('md') {
+    width: 50%;
+  }
+}</code></pre>
+            </div>
+          </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-4">glassify($bg, $blur)</h3>
+              <p class="text-sm text-slate-600 mb-4">Apply complex glassmorphism effects to any custom component.</p>
+              <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">css</div>
+            </div>
+            <div class="code-body">
+              <pre><code>.premium-header {
+  @include glassify(rgba(255, 255, 255, 0.2), 15px);
+}</code></pre>
+            </div>
+          </div>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 mb-4">generate-utility($prefix, $property, $map)</h3>
+              <p class="text-sm text-slate-600 mb-4">The core engine used to build ArarA. Create your own atomic utilities from a Sass map.</p>
+              <div class="code-block mb-8">
+            <div class="code-header">
+              <div class="code-dots"><span></span><span></span><span></span></div>
+              <div class="code-label">css</div>
+            </div>
+            <div class="code-body">
+              <pre><code>$my-sizes: ("tiny": 4px, "huge": 100px);
+
+@include generate-utility("custom", "padding", $my-sizes);
+
+// Generates:
+// .custom-tiny { padding: 4px !important; }
+// .custom-huge { padding: 100px !important; }</code></pre>
+            </div>
+          </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="positioning.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Z-Index &amp; Positioning</span>
+          </a>
+          <div class="chapter-nav__link">
+            <!-- End of documentation -->
+          </div>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#customization" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Customization</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#architecture" class="hover:text-indigo-600 transition-colors">Sass Architecture</a></li>
+              <li><a href="#overriding" class="hover:text-indigo-600 transition-colors">Overriding Variables</a></li>
+              <li><a href="#mixins" class="hover:text-indigo-600 transition-colors">Using Mixins</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

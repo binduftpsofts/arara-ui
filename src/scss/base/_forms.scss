@@ -1,0 +1,33 @@
+// base/_forms.scss
+@use 'sass:map';
+@use '../variables' as vars;
+
+input, 
+textarea, 
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: map.get(vars.$colors, "white");
+  border: 1px solid map.get(vars.$colors, "slate-200");
+  border-radius: map.get(vars.$radii, "md");
+  padding: map.get(vars.$spacers, "2") map.get(vars.$spacers, "3");
+  transition: border-color map.get(vars.$transition-durations, "fast") ease;
+  
+  &:focus {
+    outline: none;
+    border-color: map.get(vars.$colors, "primary");
+    // Uses your ring logic
+    box-shadow: 0 0 0 3px rgba(map.get(vars.$colors, "primary"), 0.2);
+  }
+
+  &:disabled {
+    background-color: map.get(vars.$colors, "slate-50");
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}
+
+::placeholder {
+  color: map.get(vars.$colors, "slate-400");
+}

@@ -1,0 +1,85 @@
+// src/scss/base/_reset.scss
+@use 'sass:map';
+@use '../abstracts' as *;
+
+// ==========================================================================
+// BASE: RESET & GLOBAL RULES
+// ==========================================================================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; // Ensures padding doesn't break width
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: map.get($colors, "slate-200"); // Uses your border variable
+}
+
+html {
+  line-height: map.get($line-heights, "normal");
+  -webkit-text-size-adjust: 100%; // Prevents font-size jumping on orientation change
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: map.get($font-families, "sans");
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  background-color: map.get($colors, "white");
+  color: map.get($colors, "slate-900");
+  -webkit-font-smoothing: antialiased; // Makes fonts look "Apple-sharp"
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Ensure images and videos are responsive by default
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+// Remove default button and input styling
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+  background-color: transparent;
+  background-image: none;
+}
+
+// Remove list bullets by default (Standard for Utility Frameworks)
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+// Ensure links inherit the brand color
+a {
+  color: inherit;
+  text-decoration: inherit;
+}

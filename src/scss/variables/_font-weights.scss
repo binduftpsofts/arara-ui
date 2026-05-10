@@ -1,0 +1,17 @@
+// variables/_font-weights.scss
+$font-weights: (
+  "thin":       100,
+  "extralight": 200, // Added
+  "light":      300,
+  "normal":     400,
+  "medium":     500,
+  "semibold":   600,
+  "bold":       700,
+  "extrabold":  800, // Added
+  "black":      900,
+
+  // --- Semantic Aliases ---
+  "body":       400,
+  "heading":    700,
+  "button":     600
+) !default;

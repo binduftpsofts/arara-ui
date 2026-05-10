@@ -1,0 +1,200 @@
+// variables/_visuals.scss
+@use 'sass:map';
+@use 'colors' as *;
+
+
+// 1. Opacity Scale (For text, backgrounds, and images)
+$opacities: (
+  "0":    0,
+  "5":    0.05,
+  "10":   0.1,
+  "20":   0.2,
+  "25":   0.25,
+  "30":   0.3,
+  "40":   0.4,
+  "50":   0.5,
+  "60":   0.6,
+  "70":   0.7,
+  "75":   0.75,
+  "80":   0.8,
+  "90":   0.9,
+  "95":   0.95,
+  "100":  1
+) !default;
+
+// 2. Gradients (Tailwind-style directional tokens)
+$gradient-directions: (
+  "t":  to top,
+  "tr": to top right,
+  "r":  to right,
+  "br": to bottom right,
+  "b":  to bottom,
+  "bl": to bottom left,
+  "l":  to left,
+  "tl": to top left
+) !default;
+
+// 3. Object Fit (For controlling image/video scaling)
+// $object-fits: (
+//   "contain": contain,
+//   "cover":   cover,
+//   "fill":    fill,
+//   "none":    none,
+//   "scale":   scale-down
+// ) !default;
+
+// 4. Cursors (Interactive visual cues)
+// $cursors: (
+//   "auto":      auto,
+//   "default":   default,
+//   "pointer":   pointer,
+//   "wait":      wait,
+//   "text":      text,
+//   "move":      move,
+//   "help":      help,
+//   "not-allowed": not-allowed
+// ) !default;
+
+// 5. User Select (Preventing or allowing text highlighting)
+// $user-selects: (
+//   "none": none,
+//   "text": text,
+//   "all":  all,
+//   "auto": auto
+// ) !default;
+
+// 6. Blur Scale (Essential for Glassmorphism and Focus effects)
+$blurs: (
+  "none": 0,
+  "sm":   4px,
+  "md":   8px,
+  "lg":   12px,
+  "xl":   24px,
+  "2xl":  40px,
+  "3xl":  64px
+) !default;
+
+$visibility: (
+  "visible":   visible,
+  "invisible": hidden,
+  "collapse":  collapse
+) !default;
+
+// 7. Backdrop Blur (Specifically for the "glass" look)
+// This uses the same scale as blurs but is intended for background-filters
+$backdrop-blurs: $blurs !default;
+
+// 8. Mix Blend Modes (For creative image/text overlays)
+$blend-modes: (
+  "normal":      normal,
+  "multiply":    multiply,
+  "screen":      screen,
+  "overlay":     overlay,
+  "darken":      darken,
+  "lighten":     lighten,
+  "color-dodge": color-dodge,
+  "color-burn":  color-burn,
+  "hard-light":  hard-light,
+  "soft-light":  soft-light,
+  "difference":  difference,
+  "exclusion":   exclusion,
+  "hue":         hue,
+  "saturation":  saturation,
+  "color":       color,
+  "luminosity":  luminosity
+) !default;
+
+// 9. Filters (Brightness, Contrast, Grayscale)
+$filters: (
+  "grayscale": (
+    "0":   0,
+    "DEFAULT": 100%
+  ),
+  "brightness": (
+    "50":  .5,
+    "75":  .75,
+    "90":  .9,
+    "100": 1,
+    "110": 1.1,
+    "125": 1.25,
+    "150": 1.5
+  ),
+  "contrast": (
+    "50":  .5,
+    "75":  .75,
+    "100": 1,
+    "125": 1.25,
+    "150": 1.5
+  )
+) !default;
+
+// 10. Aspect Ratios (Standardized for modern devices)
+$aspect-ratios: (
+  "square": (1, 1),
+  "video": (16, 9),
+  "mobile": (9, 16),
+  "photo": (4, 3),
+  "golden": (1.618, 1)
+) !default;
+
+// 11. Mask Utilities (For creative image clipping)
+$mask-shapes: (
+  "circle": circle(50%),
+  "inset": inset(5% 10% 15% 20%),
+  "triangle": polygon(50% 0%, 0% 100%, 100% 100%)
+) !default;
+
+// 12. Safe Area Insets (Crucial for Notch-displays like iPhone/Android)
+// These variables ensure your content doesn't get hidden behind the notch
+$safe-areas: (
+  "top":    env(safe-area-inset-top),
+  "right":  env(safe-area-inset-right),
+  "bottom": env(safe-area-inset-bottom),
+  "left":   env(safe-area-inset-left)
+) !default;
+
+// 13. Accent Color (The new CSS 'accent-color' property)
+// This styles native checkboxes, radio buttons, and range sliders
+$accent-color: map.get($colors, "primary") !default;
+
+// 14. Scrollbar Styles (For custom scrollbar width and color)
+$scrollbar-width: thin !default;
+$scrollbar-track: map.get($colors, "slate-100") !default;
+$scrollbar-thumb: map.get($colors, "slate-400") !default;
+
+// 15. Neon Glows (Based on your color map)
+// Perfect for "Dark Mode" primary buttons or status indicators
+$glows: (
+  "sm": 0 0 5px,
+  "md": 0 0 15px,
+  "lg": 0 0 30px,
+  "xl": 0 0 50px
+) !default;
+
+// 16. Noise & Texture (CSS-only grain effect)
+// Useful for adding a high-end "paper" or "matte" feel to the background
+$texture-opacity: 0.05 !default;
+$texture-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://w3.org id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E") !default;
+
+// 17. Multi-Stop Gradients (The "Instagram" or "Mesh" effect)
+$mesh-gradients: (
+  "rainbow": (linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff)),
+  "sunset":  (linear-gradient(45deg, #f093fb 0%, #f5576c 100%)),
+  "glassy":  (linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0)))
+) !default;
+
+// 18. Box-Sizing Defaults
+$box-sizing: border-box !default;
+
+// 19. Stroke & Dash (For SVG or Border-animation logic)
+$stroke-widths: (
+  "thin": 1px,
+  "base": 2px,
+  "thick": 4px
+) !default;
+
+$water-blur: blur(4px) !default;
+$water-opacity: 0.3 !default;
+
+// This makes the background look like it's behind pool water
+$water-filter: saturate(180%) blur(10px);

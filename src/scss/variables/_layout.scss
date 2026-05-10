@@ -1,0 +1,133 @@
+// src/scss/variables/_layout.scss
+@use 'sass:map';
+@use 'sass:string';
+@use 'spacing' as *;
+
+// 1. Grid Engine (Columns & Gutters)
+$grid-columns:     12 !default;
+$grid-columns-max: 16 !default; 
+// Note: Ensure _spacing.scss is imported before this for map.get to work
+$grid-gutter:      map.get($spacers, "4") !default; 
+
+// 2. Display Types
+$displays: (
+  "none":         none,
+  "hidden":       none,
+  "inline":       inline,
+  "block":        block,
+  "inline-block": inline-block,
+  "flex":         flex,
+  "inline-flex":  inline-flex,
+  "grid":         grid,
+  "inline-grid":  inline-grid,
+  "contents":     contents,
+  "table":        table
+) !default;
+
+// 3. Flexbox Behavior
+$flex-directions: (
+  "row":            row,
+  "row-reverse":    row-reverse,
+  "col":            column,
+  "col-reverse":    column-reverse
+) !default;
+
+$flex-wraps: (
+  "wrap":           wrap,
+  "nowrap":         nowrap,
+  "wrap-reverse":   wrap-reverse
+) !default;
+
+// Flex basis/grow/shrink shorthand (Tailwind-style)
+$flex-logic: (
+  "1":              1 1 0%,
+  "auto":           1 1 auto,
+  "initial":        0 1 auto,
+  "none":           none
+) !default;
+
+$flex-grow: (
+  "0": 0,
+  "DEFAULT": 1
+) !default;
+
+$flex-shrink: (
+  "0": 0,
+  "DEFAULT": 1
+) !default;
+
+// 4. Alignment Logic (Used for both Flex and Grid)
+$justify-content: (
+  "start":    flex-start,
+  "end":      flex-end,
+  "center":   center,
+  "between":  space-between,
+  "around":   space-around,
+  "evenly":   space-evenly
+) !default;
+
+$align-items: (
+  "start":    flex-start,
+  "end":      flex-end,
+  "center":   center,
+  "baseline": baseline,
+  "stretch":  stretch
+) !default;
+
+$align-self: (
+  "auto":     auto,
+  "start":    flex-start,
+  "end":      flex-end,
+  "center":   center,
+  "stretch":  stretch
+) !default;
+
+// 5. Grid Placement (Span logic)
+$grid-spans: (
+  "auto":           auto,
+  "full":           string.unquote("1 / -1"),
+  "1":              span 1 / span 1,
+  "2":              span 2 / span 2,
+  "3":              span 3 / span 3,
+  "4":              span 4 / span 4,
+  "5":              span 5 / span 5,
+  "6":              span 6 / span 6,
+  "7":              span 7 / span 7,
+  "8":              span 8 / span 8,
+  "9":              span 9 / span 9,
+  "10":             span 10 / span 10,
+  "11":             span 11 / span 11,
+  "12":             span 12 / span 12
+) !default;
+
+// 6. Object Positioning & Fit
+$object-positions: (
+  "bottom":  bottom,
+  "center":  center,
+  "left":    left,
+  "right":   right,
+  "top":     top
+) !default;
+
+// 7. Overflow & Visibility
+$overflows: (
+  "auto":   auto,
+  "hidden": hidden,
+  "clip":   clip,
+  "visible":visible,
+  "scroll": scroll
+) !default;
+
+// 8. Legacy Layout Helpers
+$floats: (
+  "right": right,
+  "left":  left,
+  "none":  none
+) !default;
+
+$clears: (
+  "left":  left,
+  "right": right,
+  "both":  both,
+  "none":  none
+) !default;

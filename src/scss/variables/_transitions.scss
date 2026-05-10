@@ -1,0 +1,86 @@
+// variables/_transitions.scss
+@use 'sass:map';
+
+// 1. Durations (How long the animation takes)
+$transition-durations: (
+  "fast":   150ms,
+  "normal": 300ms,
+  "slow":   500ms,
+  "75":     75ms,
+  "100":    100ms,
+  "200":    200ms,
+  "300":    300ms,
+  "500":    500ms,
+  "700":    700ms,
+  "1000":   1000ms
+) !default;
+
+// 2. Timing Functions (The "Feel" of the movement)
+$transition-easings: (
+  "linear":  linear,
+  "in":      cubic-bezier(0.4, 0, 1, 1),      // Starts slow, ends fast
+  "out":     cubic-bezier(0, 0, 0.2, 1),      // Starts fast, ends slow
+  "in-out":  cubic-bezier(0.4, 0, 0.2, 1),    // Smooth start and end (Tailwind default)
+  "bounce":  cubic-bezier(0.34, 1.56, 0.64, 1) // Modern "pop" effect
+) !default;
+
+// 3. Properties (What is being animated)
+$transition-properties: (
+  "none":     none,
+  "all":      all,
+  "colors":   (color, background-color, border-color, text-decoration-color, fill, stroke),
+  "opacity":  opacity,
+  "shadow":   box-shadow,
+  "transform":transform
+) !default;
+
+// 4. System Default
+$transition-default: (
+  "property": map.get($transition-properties, "colors"),
+  "duration": map.get($transition-durations, "normal"),
+  "easing":   map.get($transition-easings, "in-out")
+) !default;
+
+$transition-delays: (
+  "0":    0ms,
+  "75":   75ms,
+  "100":  100ms,
+  "150":  150ms,
+  "200":  200ms,
+  "300":  300ms,
+  "500":  500ms,
+  "700":  700ms,
+  "1000": 1000ms
+) !default;
+
+$transition-scales: (
+  "0":    0,
+  "50":   0.5,
+  "75":   0.75,
+  "90":   0.9,
+  "95":   0.95,
+  "100":  1,
+  "105":  1.05,
+  "110":  1.1,
+  "125":  1.25,
+  "150":  1.5
+) !default;
+
+$transition-rotate: (
+  "0":    0deg,
+  "45":   45deg,
+  "90":   90deg,
+  "180":  180deg
+) !default;
+
+$transition-translate: (
+  "0":    0,
+  "1":    0.25rem,
+  "2":    0.5rem,
+  "4":    1rem,
+  "8":    2rem,
+  "12":   3rem,
+  "16":   4rem,
+  "full": 100%,
+  "px":   1px
+) !default;

@@ -1,0 +1,20 @@
+// ==========================================================================
+// MAIN ENTRY POINT
+// ==========================================================================
+
+// 1. ABSTRACTS (The Brain)
+// This pulls in Variables, Functions, Mixins, and Animations
+@use 'abstracts/index' as abs;
+
+// 2. BASE (The Foundation)
+// Clears browser defaults and sets global typography rules
+@use 'base/index' as base;
+
+// 3. COMPONENTS (The UI Elements - Optional)
+// Styles for specific objects like buttons or cards
+@use 'components/index' as comp;
+
+// 4. UTILITIES (The Tools)
+// This is the largest part of your framework. 
+// We load it LAST so these classes always have the highest specificity.
+@use 'utilities/index' as utils;

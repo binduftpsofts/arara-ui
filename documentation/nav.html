@@ -1,0 +1,54 @@
+<!--
+  ArarA Documentation — Shared Navigation Template
+  ===================================================
+  This file is the SOURCE OF TRUTH for the documentation sidebar.
+  It is NOT loaded via fetch() (file:// CORS restriction).
+  Instead, nav.js contains this content as a template literal.
+  When you add a new page: update nav.js AND this file to stay in sync.
+-->
+
+<div class="drawer-header">
+  <span class="text-xl font-bold tracking-tight text-slate-900">Navigation</span>
+  <button id="closeDrawer" class="p-2 -mr-2 text-slate-500 hover:text-slate-900 transition-colors">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+</div>
+<div class="drawer-content p-6">
+  <nav class="flex flex-col gap-1">
+
+    <!-- GROUP: Getting Started -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-2 px-2">Getting Started</p>
+    <a href="{root}index.html"                              data-page="introduction"  class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Introduction</a>
+    <a href="{root}documentation/pages/installation.html"  data-page="installation"  class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Installation</a>
+
+    <!-- GROUP: Core Concepts -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-6 px-2">Core Concepts</p>
+    <a href="{root}documentation/pages/colors.html"        data-page="colors"        class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Colors &amp; Theming</a>
+    <a href="{root}documentation/pages/typography.html"    data-page="typography"    class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Typography</a>
+
+    <!-- GROUP: Layout & Spacing -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-6 px-2">Layout &amp; Spacing</p>
+    <a href="{root}documentation/pages/spacing.html"       data-page="spacing"       class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Spacing</a>
+    <a href="{root}documentation/pages/flexbox.html"       data-page="flexbox"       class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Display &amp; Flexbox</a>
+    <a href="{root}documentation/pages/grid.html"          data-page="grid"          class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Grid System</a>
+
+    <!-- GROUP: Visuals & Interactivity -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-6 px-2">Visuals</p>
+    <a href="{root}documentation/pages/borders.html"       data-page="borders"       class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Borders &amp; Radius</a>
+    <a href="{root}documentation/pages/shadows.html"       data-page="shadows"       class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Shadows &amp; Elevation</a>
+    <a href="{root}documentation/pages/transitions.html"   data-page="transitions"   class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Transitions &amp; Animation</a>
+    <a href="{root}documentation/pages/glassmorphism.html" data-page="glassmorphism" class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Glassmorphism</a>
+
+    <!-- GROUP: Responsive -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-6 px-2">Responsive</p>
+    <a href="{root}documentation/pages/responsive.html"    data-page="responsive"    class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Breakpoints</a>
+
+    <!-- GROUP: Advanced -->
+    <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2 mt-6 px-2">Advanced</p>
+    <a href="{root}documentation/pages/positioning.html"   data-page="positioning"   class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Z-Index &amp; Positioning</a>
+    <a href="{root}documentation/pages/customization.html" data-page="customization" class="nav-link p-2 px-3 rounded-lg text-slate-600 hover:bg-slate-50 transition-colors">Customization</a>
+
+  </nav>
+</div>

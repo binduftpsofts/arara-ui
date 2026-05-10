@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA Glassmorphism — creating premium frosted glass effects with backdrop blur and semi-transparent backgrounds.">
+  <title>Glassmorphism | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="glassmorphism" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="glassmorphism" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Glassmorphism</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          Create premium frosted glass effects using semi-transparent backgrounds and modern backdrop filters. ArarA's glass system is designed for high-end SaaS and architectural UI.
+        </p>
+
+        <!-- The .glass Utility -->
+        <div id="glass-utility" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">The .glass Utility</h2>
+          <p class="text-slate-600 mb-8 text-sm">A shorthand utility for premium frosted glass effects.</p>
+          
+          <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm mb-8">
+            <div class="p-12 bg-slate-100 border-b border-slate-100 relative flex items-center justify-center min-h-[300px]">
+              <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute top-10 left-10 w-32 h-32 bg-indigo-500 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                <div class="absolute bottom-10 right-10 w-32 h-32 bg-pink-500 rounded-full blur-3xl opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+              </div>
+              <div class="relative glass p-10 rounded-2xl shadow-xl max-w-sm border border-white/20 text-center">
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Glass Card</h3>
+                <p class="text-slate-600 text-sm">Premium frosted effect with backdrop blur.</p>
+              </div>
+            </div>
+            <div class="bg-slate-900 p-6 font-mono text-sm text-slate-300">
+              <pre><code>&lt;div class="glass p-10 rounded-2xl shadow-xl border border-white/20"&gt;
+  &lt;h3&gt;Glass Card&lt;/h3&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Backdrop Blur -->
+        <div id="backdrop-blur" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Backdrop Blur</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the strength of the frosted effect behind an element using <code class="font-mono text-indigo-600">backdrop-blur-{size}</code>.</p>
+          
+          <div class="relative p-8 rounded-3xl overflow-hidden mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="absolute inset-0 bg-mesh-rainbow opacity-20"></div>
+            <div class="relative p-6 rounded-xl bg-white/20 border border-white/30 backdrop-blur-sm text-center">
+              <p class="text-xs font-mono font-bold text-slate-900">blur-sm</p>
+            </div>
+            <div class="relative p-6 rounded-xl bg-white/20 border border-white/30 backdrop-blur-md text-center">
+              <p class="text-xs font-mono font-bold text-slate-900">blur-md</p>
+            </div>
+            <div class="relative p-6 rounded-xl bg-white/20 border border-white/30 backdrop-blur-xl text-center">
+              <p class="text-xs font-mono font-bold text-slate-900">blur-xl</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glass Colors -->
+        <div id="glass-colors" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Glass Color Variants</h2>
+          <p class="text-slate-600 mb-8 text-sm">ArarA ships with specialized semi-transparent color tokens designed specifically for glass effects.</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <div class="relative p-12 rounded-3xl overflow-hidden">
+              <div class="absolute inset-0 bg-slate-900"></div>
+              <div class="relative p-8 rounded-2xl bg-glass-white-rich backdrop-blur-md border border-white/10 text-white">
+                <p class="text-xs font-mono mb-2 uppercase opacity-50">Light Glass on Dark</p>
+                <h3 class="text-lg font-bold">bg-glass-white-rich</h3>
+              </div>
+            </div>
+            <div class="relative p-12 rounded-3xl overflow-hidden">
+              <div class="absolute inset-0 bg-mesh-rainbow opacity-30"></div>
+              <div class="relative p-8 rounded-2xl bg-glass-primary backdrop-blur-md border border-white/10 text-indigo-900">
+                <p class="text-xs font-mono mb-2 uppercase opacity-50">Colored Glass</p>
+                <h3 class="text-lg font-bold">bg-glass-primary</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blend Modes -->
+        <div id="blend-modes" class="mb-16 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Mix Blend Modes</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control how an element's content blends with the background using <code class="font-mono text-indigo-600">mix-blend-{mode}</code>.</p>
+          
+          <div class="relative p-12 rounded-3xl overflow-hidden mb-8">
+            <div class="absolute inset-0 bg-mesh-rainbow opacity-50"></div>
+            <div class="relative flex flex-wrap gap-8 justify-center">
+              <div class="p-6 rounded-full bg-indigo-500 mix-blend-multiply flex items-center justify-center text-white font-bold">Multiply</div>
+              <div class="p-6 rounded-full bg-indigo-500 mix-blend-overlay flex items-center justify-center text-white font-bold">Overlay</div>
+              <div class="p-6 rounded-full bg-indigo-500 mix-blend-screen flex items-center justify-center text-white font-bold">Screen</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="transitions.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Transitions &amp; Animation</span>
+          </a>
+          <a href="responsive.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Breakpoints →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#glassmorphism" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Glassmorphism</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#glass-utility" class="hover:text-indigo-600 transition-colors">The .glass Utility</a></li>
+              <li><a href="#backdrop-blur" class="hover:text-indigo-600 transition-colors">Backdrop Blur</a></li>
+              <li><a href="#glass-colors" class="hover:text-indigo-600 transition-colors">Glass Color Variants</a></li>
+              <li><a href="#blend-modes" class="hover:text-indigo-600 transition-colors">Mix Blend Modes</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>

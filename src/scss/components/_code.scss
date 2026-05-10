@@ -1,0 +1,137 @@
+.code-block {
+  background-color: #1e1e1e; // VS Code dark
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #333;
+}
+
+.code-header {
+  padding: 0.75rem 1rem;
+  background-color: #2d2d2d;
+  border-bottom: 1px solid #1e1e1e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.code-dots {
+  display: flex;
+  gap: 0.375rem;
+
+  span {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    
+    &:nth-child(1) { background-color: #ff5f56; }
+    &:nth-child(2) { background-color: #ffbd2e; }
+    &:nth-child(3) { background-color: #27c93f; }
+  }
+}
+
+.code-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.code-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.625rem;
+  color: #858585;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: #858585;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: all 0.2s;
+  
+  &:hover {
+    color: #cccccc;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &.copied {
+    color: #27c93f;
+  }
+}
+
+.code-body {
+  padding: 1.5rem;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', Consolas, Monaco, 'Courier New', monospace;
+  font-size: 0.875rem;
+  color: #d4d4d4;
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  line-height: 1.6;
+
+  pre {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    color: inherit;
+    tab-size: 2;
+  }
+  
+  code {
+    font-family: inherit;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    border-radius: 0;
+    white-space: pre;
+  }
+
+  // Syntax Highlighting Tokens
+  .token.tag { color: #569cd6; }       // VS Code blue
+  .token.attr { color: #9cdcfe; }      // VS Code light blue
+  .token.string { color: #ce9178; }    // VS Code orange/string
+  .token.comment { color: #6a9955; font-style: italic; } // VS Code green comment
+  .token.punctuation { color: #d4d4d4; }
+  .token.doctype  { color: #808080; }
+  .token.selector { color: #d7ba7d; }
+  .token.property { color: #9cdcfe; }
+  .token.value    { color: #ce9178; }
+  .token.color    { color: #b5cea8; }
+  .token.atrule   { color: #c586c0; }
+  .token.keyword  { color: #569cd6; font-weight: 500; }
+  .token.number   { color: #b5cea8; }
+  .token.boolean  { color: #569cd6; }
+  .token.function { color: #dcdcaa; }
+  .token.key      { color: #9cdcfe; }
+  .token.variable { color: #9cdcfe; }
+  .code-actions { display: flex; justify-content: space-between; align-items: center; }
+  .copy-btn { background: none; border: none; cursor: pointer; padding: 4px; border-radius: 6px; transition: all 0.1s; }
+  .copy-btn svg { width: 18px; height: 18px; stroke: #6c7a8e; }
+  .copy-btn:hover svg { stroke: #1e293b; }
+  .copy-btn.copied svg { stroke: #22c55e; }
+  .token.flag { color: #4ec9b0; font-weight: normal; }
+  .token.control  { color: #c586c0; } // purple (flow control)
+  .token.builtin  { color: #569cd6; } // blue (core shell)
+  .token.package  { color: #4ec9b0; } // teal (npm, apt, etc.)
+  .token.tool     { color: #dcdcaa; } // yellow (docker, node, etc.)
+  .token.utility  { color: #9cdcfe; } // light blue (grep, awk)
+  .token.operator { color: #d4d4d4; } // neutral
+  .token.command { color: #c586c0; }
+}

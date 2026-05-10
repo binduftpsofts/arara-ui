@@ -1,0 +1,5 @@
+// src/scss/abstracts/_index.scss
+@forward '../variables'; // Points to your variables folder
+@forward 'functions';
+@forward 'mixins';
+@forward 'animations';

@@ -1,0 +1,98 @@
+// ==========================================================================
+// UTILITIES: RESPONSIVE GENERATOR
+// ==========================================================================
+
+@use '../abstracts' as *;
+
+// 1. Generate Standard Utilities (Mobile First)
+@use 'spacing';
+@use 'colors';
+@use 'typography';
+@use 'layout';
+@use 'visuals';
+
+// 2. Generate Responsive Variants (The "md:" prefixes)
+@each $bp-name, $bp-value in $breakpoints {
+  $bp-class: str-replace($bp-name, "2xl", "xxl");
+  $bp-class: str-replace($bp-class, "3xl", "xxxl");
+  @include respond-to($bp-name) {
+    // We use a prefixing strategy here
+    
+    @each $key, $value in $spacers {
+      $class-key: str-replace($key, ".", "_");
+      .#{$bp-class}\:p-#{$class-key}  { padding: $value !important; }
+      .#{$bp-class}\:m-#{$class-key}  { margin: $value !important; }
+      .#{$bp-class}\:w-#{$class-key}  { width: $value !important; }
+      .#{$bp-class}\:h-#{$class-key}  { height: $value !important; }
+    }
+
+    @each $name, $value in $displays {
+      .#{$bp-class}\:#{$name} { display: $value !important; }
+    }
+    
+    @for $i from 1 through $grid-columns {
+      .#{$bp-class}\:grid-cols-#{$i} { 
+        grid-template-columns: repeat(#{$i}, minmax(0, 1fr)) !important; 
+      }
+    }
+    
+    @each $name, $value in $justify-content {
+      .#{$bp-class}\:justify-#{$name} { justify-content: $value !important; }
+    }
+
+    @each $key, $value in $spacers {
+      $class-key: str-replace($key, ".", "_");
+      .#{$bp-class}\:gap-#{$class-key}   { gap: $value !important; }
+      .#{$bp-class}\:gap-x-#{$class-key} { column-gap: $value !important; }
+      .#{$bp-class}\:gap-y-#{$class-key} { row-gap: $value !important; }
+    }
+
+    @each $name, $size in $font-sizes {
+      .#{$bp-class}\:text-#{$name} { font-size: $size !important; }
+    }
+
+    @each $name, $color in $colors {
+      .#{$bp-class}\:text-#{$name} { color: $color !important; }
+      .#{$bp-class}\:bg-#{$name}   { background-color: $color !important; }
+      .#{$bp-class}\:border-#{$name} { border-color: $color !important; }
+    }
+
+    @each $name, $value in $align-items {
+      .#{$bp-class}\:items-#{$name} { align-items: $value !important; }
+    }
+
+    @each $name, $value in $flex-directions {
+      .#{$bp-class}\:flex-#{$name} { flex-direction: $value !important; }
+    }
+
+    @each $name, $value in $flex-wraps {
+      .#{$bp-class}\:flex-#{$name} { flex-wrap: $value !important; }
+    }
+
+    @each $key, $value in $radii {
+      @if $key == "base" {
+        .#{$bp-class}\:rounded { border-radius: $value !important; }
+      } @else {
+        .#{$bp-class}\:rounded-#{$key} { border-radius: $value !important; }
+      }
+    }
+
+    @each $key, $value in $shadows {
+      .#{$bp-class}\:shadow-#{$key} { box-shadow: $value !important; }
+    }
+
+    // Responsive Transforms
+    @each $key, $value in $transition-scales {
+      .#{$bp-class}\:scale-#{$key} { --tw-scale-x: #{$value}; --tw-scale-y: #{$value}; @include transform-gpu; }
+    }
+    @each $key, $value in $transition-rotate {
+      .#{$bp-class}\:rotate-#{$key} { --tw-rotate: #{$value}; @include transform-gpu; }
+    }
+    @each $key, $value in $transition-translate {
+      .#{$bp-class}\:translate-x-#{$key} { --tw-translate-x: #{$value}; @include transform-gpu; }
+      .#{$bp-class}\:translate-y-#{$key} { --tw-translate-y: #{$value}; @include transform-gpu; }
+      .#{$bp-class}\:-translate-x-#{$key} { --tw-translate-x: -#{$value}; @include transform-gpu; }
+      .#{$bp-class}\:-translate-y-#{$key} { --tw-translate-y: -#{$value}; @include transform-gpu; }
+    }
+  }
+}

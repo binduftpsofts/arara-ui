@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ArarA layout utilities — display, flexbox, justify, alignment, and overflow control.">
+  <title>Display &amp; Flexbox | ArarA v0.1.0</title>
+  <link rel="stylesheet" href="../../dist/css/style.css">
+</head>
+<body class="bg-slate-50 font-sans antialiased text-slate-900">
+
+  <header class="sticky top-0 z-50 w-full bg-white border-b border-slate-200 shadow-sm">
+    <div class="flex items-center h-16">
+      <div class="flex items-center gap-3 w-full md:w-70 px-6 h-full border-r border-slate-100">
+        <button id="openDrawer" class="md:hidden p-2 -ml-2 text-slate-500 hover:text-slate-900 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <a href="../../index.html" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <img src="../assets/arara_background_less.png" alt="ArarA Logo" class="hidden lg:block w-10 h-10 object-contain drop-shadow-md">
+          <span class="text-xl font-bold tracking-tight text-slate-900">ArarA</span>
+        </a>
+      </div>
+      <div class="flex items-center justify-between grow px-6">
+        <div class="hidden md:block text-xs font-mono text-slate-400">v0.1.0</div>
+        <div class="flex items-center gap-6">
+          <a href="https://github.com/FazleRabbiBindu/arara" class="text-slate-500 hover:text-slate-900 transition-colors text-sm">GitHub</a>
+          <a href="installation.html" class="px-4 py-2 bg-indigo-600 rounded-xl text-sm font-semibold text-white shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="sidebarDrawer" class="drawer">
+      <div id="nav-placeholder" data-active="flexbox" data-root="../../"></div>
+    </aside>
+
+    <main class="grow p-6 md:p-12 lg:p-16 bg-white overflow-hidden">
+      <div id="flexbox" class="mb-24 scroll-mt-24 max-w-4xl">
+
+        <h1 class="text-4xl font-extrabold text-slate-900 tracking-tight mb-6">Display &amp; Flexbox</h1>
+        <p class="text-xl text-slate-600 leading-relaxed mb-16">
+          Powerful utilities for controlling layout behavior. From simple block/inline toggle to complex flexbox alignment and distribution logic.
+        </p>
+
+        <!-- Display -->
+        <div id="display" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Display</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the box type of an element.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview">
+              <div class="space-y-4 w-full">
+                <div class="p-4 bg-indigo-600 text-white rounded-lg block text-center shadow-lg">.block</div>
+                <div class="flex gap-2">
+                  <span class="p-4 bg-indigo-500 text-white rounded-lg inline-block shadow-lg">.inline-block</span>
+                  <span class="p-4 bg-indigo-400 text-white rounded-lg inline-block shadow-lg">.inline-block</span>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="block"&gt;…&lt;/div&gt;
+&lt;span class="inline-block"&gt;…&lt;/span&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Flex Direction -->
+        <div id="flex-direction" class="mb-20 scroll-mt-24">
+          <h2 class="text-2xl font-bold text-slate-900 mb-4">Flex Direction</h2>
+          <p class="text-slate-600 mb-8 text-sm">Control the primary axis along which flex items are placed.</p>
+          
+          <div class="showcase">
+            <div class="showcase-preview p-8 bg-slate-50  grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">flex-row</p>
+                <div class="flex flex-row gap-2">
+                  <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white">1</div>
+                  <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white">2</div>
+                </div>
+              </div>
+              <div>
+                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">flex-col</p>
+                <div class="flex flex-col gap-2">
+                  <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white">1</div>
+                  <div class="w-12 h-12 bg-indigo-600 rounded-lg flex items-center justify-center text-white">2</div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots"><span></span><span></span><span></span></div>
+                <div class="code-label">HTML</div>
+              </div>
+              <div class="code-body">
+                <pre><code>&lt;div class="flex flex-row"&gt;…&lt;/div&gt;
+&lt;div class="flex flex-col"&gt;…&lt;/div&gt;</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chapter Nav -->
+        <nav class="chapter-nav">
+          <a href="spacing.html" class="chapter-nav__link">
+            <span class="chapter-nav__label">Previous Chapter</span>
+            <span class="chapter-nav__title">← Spacing</span>
+          </a>
+          <a href="grid.html" class="chapter-nav__link chapter-nav__link--next">
+            <span class="chapter-nav__label">Next Chapter</span>
+            <span class="chapter-nav__title">Grid System →</span>
+          </a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Right TOC -->
+    <aside class="toc border-l border-slate-100 hidden lg:block">
+      <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">On this page</p>
+      <nav class="toc-tree">
+        <ul class="space-y-4">
+          <li>
+            <a href="#flexbox" class="text-sm font-semibold text-slate-900 hover:text-indigo-600 transition-colors">Display &amp; Flexbox</a>
+            <ul class="ml-4 mt-2 border-l-2 border-slate-100 pl-4 space-y-2 text-sm text-slate-500">
+              <li><a href="#display" class="hover:text-indigo-600 transition-colors">Display</a></li>
+              <li><a href="#flex-direction" class="hover:text-indigo-600 transition-colors">Flex Direction</a></li>
+              <li><a href="#justify-content" class="hover:text-indigo-600 transition-colors">Justify Content</a></li>
+              <li><a href="#align-items" class="hover:text-indigo-600 transition-colors">Align Items</a></li>
+              <li><a href="#flex-grow-shrink" class="hover:text-indigo-600 transition-colors">Grow &amp; Shrink</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/toc.js"></script>
+  <script src="../scripts/code.js"></script>
+</body>
+</html>
