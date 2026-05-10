@@ -18,7 +18,7 @@ Quick start
 Clone and install:
 
 ```bash
-git clone https://github.com/FazleRabbiBindu/arara.git
+git clone https://github.com/binduftpsofts/arara-ui.git
 cd arara
 npm install
 ```
